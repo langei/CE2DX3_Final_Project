@@ -29,17 +29,18 @@
 *                    GLOBAL VARIABLES
 *********************************************************/
 volatile TsStepParameters motor = {
-					.angle = MAX_SAMPLES_PER_ROTATION,
+					.angle = STEP_SIZE	,
 					.dir = STEP_CW,
 					.currentStep = 0,
-					.state = STEP_OFF,
+//					.state = STEP_OFF,
 					.op = STEP_NORMAL,
 };
 
 volatile TsScannerParameters scanner = {
-					.state = SC_COMPLETE
+					.status = SC_COMPLETE,
+					.state = SC_SCAN_MODE
 };
-uint8_t transmission_data[MAX_SAMPLES_PER_ROTATION][MAX_MEASUREMENTS] = {0};
+uint16_t transmissionData[NUM_SAMPLES][MAX_MEASUREMENTS] = {0};
 
 /*********************************************************
 *              PUBLIC FUNCTION DEFINITIONS
@@ -48,11 +49,15 @@ uint8_t transmission_data[MAX_SAMPLES_PER_ROTATION][MAX_MEASUREMENTS] = {0};
 
 
 int main(void) {
-	PLL_Init();           // Set system clock to 120 MHz
+	PLL_Init();           // Set system clock to 12 MHz
 	SysTick_Init();
 	scanner_Init();
-	
+
 	while(1){
+		if(scanner.state == SC_SCAN_MODE && scanner.status == SC_SCANNING){
+			scanYZ();
+		}
+		
 		
 	}
 	

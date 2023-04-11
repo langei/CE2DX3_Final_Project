@@ -24,15 +24,19 @@
 /*********************************************************
 *                    		 MACROS
 *********************************************************/
-//SET MAX_SAMPLES_PER_ROTATION to one of the following:
+//SET SIZE_SIZE to one of the following:
 //Motor Step 2.8125 deg: 16 steps
 //Motor Step 5.625 deg: 32 steps
 //Motor Step 11.25 deg: 64 steps
 //Motor Step 22.5 deg: 128 steps
 //Motor Step 45 deg: 256 steps
 
-#define MAX_SAMPLES_PER_ROTATION		(256U)
+#define STEP_SIZE										(16U)
+
+
+#define NUM_SAMPLES									(STEPS_IN_ROTATION/STEP_SIZE)
 #define MAX_MEASUREMENTS 						(20U)
+#define DEV													(uint16_t)(0x29)
 
 
 /*********************************************************
@@ -44,6 +48,8 @@ void DisableInt(void);
 void WaitForInt(void);
 void PortJ_Init(void);
 void PortJ_Interrupt_Init(void);
+void bootVL53L1X(void);
+void scanYZ(void);
 
 /*********************************************************
 *                   DATA STRUCTURES
@@ -51,10 +57,16 @@ void PortJ_Interrupt_Init(void);
 typedef enum{
 	SC_SCANNING,
 	SC_COMPLETE
-}TeScannerState;
+}TeScanningStatus;
+
+typedef enum{
+	SC_SCAN_MODE,
+	SC_TRANSMIT_MODE
+}TeScanningState;
 
 typedef struct{
-	TeScannerState state;
+	TeScanningStatus status;
+	TeScanningState state;
 }TsScannerParameters;
 
 /*********************************************************
@@ -62,7 +74,15 @@ typedef struct{
 *********************************************************/
 extern volatile TsStepParameters motor;
 extern volatile TsScannerParameters scanner;
-extern uint8_t transmission_data[MAX_SAMPLES_PER_ROTATION][MAX_MEASUREMENTS];
+extern uint16_t transmissionData[NUM_SAMPLES][MAX_MEASUREMENTS];
+
+
+uint8_t dataReady = 0;
+uint8_t sensorState = 0;
+uint8_t measurementNum = 0;
+uint16_t distance = 0;
+int status = 0;
+	
 
 /*********************************************************
 *              PUBLIC FUNCTION DEFINITIONS
@@ -80,6 +100,32 @@ void DisableInt(void)
 // Low power wait
 void WaitForInt(void)
 {    __asm("    wfi\n");
+}
+
+void bootVL53L1X(void){
+	
+	// Booting ToF chip
+	while(sensorState==0){
+		status = VL53L1X_BootState(DEV, &sensorState);
+		SysTick_Wait10ms(10);
+  }
+	
+	status = VL53L1X_ClearInterrupt(DEV);  // clear interrupt has to be called to enable next interrupt 
+	status = VL53L1X_SensorInit(DEV); 		 // initialize the sensor with the default setting
+	status = VL53L1X_StartRanging(DEV);    // enable the ranging
+}
+
+void scanYZ(void){
+	for(uint8_t i = 0; i < NUM_SAMPLES; i++){
+		step(motor.dir, motor.angle);
+		SysTick_Wait10ms(DELAY);
+		VL53L1X_GetDistance(DEV, &distance);
+		transmissionData[i][measurementNum] = distance;
+	}
+	step(!(motor.dir), STEPS_IN_ROTATION);		// go back home
+	measurementNum++;
+	scanner.status = SC_COMPLETE;
+	motor.op = STEP_HOME;
 }
 
 // Give clock to Port J and initalize as input GPIO
@@ -114,15 +160,28 @@ void PortJ_Interrupt_Init(void){
 // IRQ Handler (Interrupt Service Routine).  
 void GPIOJ_IRQHandler(void){
 
+	if((GPIO_PORTJ_RIS_R & BIT(0))){		// Read RIS register to check if interrupt occured
+		scanner.status ^= BIT(0);
+		GPIO_PORTM_ICR_R |= 0x01;     					// Acknowledge flag by setting proper bit in ICR register
+	}
+	else if((GPIO_PORTJ_RIS_R & BIT(1))){
+		scanner.state ^= BIT(0);
+		GPIO_PORTM_ICR_R |= 0x02;     					// Acknowledge flag by setting proper bit in ICR register
+	}
 	FlashLED2(1);													// Flash the LED D2 one time
 	GPIO_PORTJ_ICR_R = 0x03;     					// Acknowledge flag by setting proper bit in ICR register
 }
 
 
 void scanner_Init(){
-	PortH_Init();
+	UART_Init();
+	I2C_Init();
+	PortM_Init();
 	PortJ_Init();
 	PortJ_Interrupt_Init();
 	onboardLEDs_Init();
+	bootVL53L1X();
 	SetLED2();
+
+
 }

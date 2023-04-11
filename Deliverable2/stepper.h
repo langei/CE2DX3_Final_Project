@@ -28,7 +28,7 @@
 /*********************************************************
 *                 FUNCTION PROTOTYPES
 *********************************************************/
-void PortH_Init(void);
+void PortM_Init(void);
 
 /*********************************************************
 *                   DATA STRUCTURES
@@ -53,10 +53,10 @@ typedef enum{
 //	STEP_45000 = (256U)
 //}TeStepAngle;
 
-typedef enum{
-	STEP_OFF,
-	STEP_ON,
-}TeStepState;
+//typedef enum{
+//	STEP_OFF,
+//	STEP_ON,
+//}TeStepState;
 
 typedef enum{
 	STEP_NORMAL,
@@ -67,31 +67,31 @@ typedef struct{
 	TeStepDirection dir;
 	uint16_t angle;
 	uint16_t currentStep;
-	TeStepState state;
+//	TeStepState state;
 	TeStepOperation op;
 }TsStepParameters;
 
-
+volatile TsStepParameters motor;
 /*********************************************************
 *                  FUNCTION DECLARATIONS
 *********************************************************/
-void PortH_Init(void){
-	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R7;                 // Activate the clock for Port L
-	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R7) == 0){};        // Allow time for clock to stabilize 
-	GPIO_PORTH_DIR_R = 0b00001111;       								      // Make PL0-PL3 outputs 
-	GPIO_PORTH_AFSEL_R = 0;
-  GPIO_PORTH_DEN_R = 0b00001111;
-	GPIO_PORTH_AMSEL_R &= ~0xFF;     								// disable analog functionality on PN0	
+void PortM_Init(void){
+	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R11;                 // Activate the clock for Port L
+	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R11) == 0){};        // Allow time for clock to stabilize 
+	GPIO_PORTM_DIR_R = 0b00001111;       								      // Make PL0-PL3 outputs 
+	GPIO_PORTM_AFSEL_R = 0;
+  GPIO_PORTM_DEN_R = 0b00001111;
+	GPIO_PORTM_AMSEL_R &= ~0xFF;     								// disable analog functionality on PN0	
 	return;
 }
 
-void step(TeStepDirection dir, uint16_t num_steps, TsStepParameters motor){
+void step(TeStepDirection dir, uint16_t num_steps){
 	uint8_t ccw_sequence[NUM_SEQUENCE] 	= {0b1100, 0b0110, 0b0011, 0b1001};		// full step lookup
 	uint8_t cw_sequence[NUM_SEQUENCE] 	= {0b1001, 0b0011, 0b0110, 0b1100};
 	
 	
 	for(uint16_t i = 0; i < num_steps; i++){		// loop through the number of steps
-		GPIO_PORTH_DATA_R = (dir == STEP_CW) ? cw_sequence[i % NUM_SEQUENCE] : ccw_sequence[i % NUM_SEQUENCE];
+		GPIO_PORTM_DATA_R = (dir == STEP_CW) ? cw_sequence[i % NUM_SEQUENCE] : ccw_sequence[i % NUM_SEQUENCE];
 		SysTick_Wait1ms(DELAY);
 		
 		if(motor.currentStep == STEPS_IN_ROTATION - motor.angle){		// if current step is 

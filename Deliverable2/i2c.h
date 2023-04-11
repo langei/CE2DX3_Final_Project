@@ -50,7 +50,7 @@ void I2C_Init(void){
 //  GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R&0xFFFF00FF)+0x00003300;
   GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R&0xFFFF00FF)+0x00002200;    //TED
     I2C0_MCR_R = I2C_MCR_MFE;                      													// 9) master function enable
-    I2C0_MTPR_R = 0b0000000000000101000000000111011;                       	// 8) configure for 100 kbps clock (added 8 clocks of glitch suppression ~50ns)
-//    I2C0_MTPR_R = 0x3B;                                        						// 8) configure for 100 kbps clock
+    //I2C0_MTPR_R = 0b00000000000001010000000000000101;                       	// 8) configure for 100 kbps clock (added 8 clocks of glitch suppression ~50ns)
+    I2C0_MTPR_R = 0x3B;                                        						// 8) configure for 100 kbps clock
         
 }
