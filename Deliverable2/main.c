@@ -29,12 +29,17 @@
 *                    GLOBAL VARIABLES
 *********************************************************/
 volatile TsStepParameters motor = {
-					.angle = STEP_45000,
+					.angle = MAX_SAMPLES_PER_ROTATION,
 					.dir = STEP_CW,
 					.currentStep = 0,
 					.state = STEP_OFF,
 					.op = STEP_NORMAL,
 };
+
+volatile TsScannerParameters scanner = {
+					.state = SC_COMPLETE
+};
+uint8_t transmission_data[MAX_SAMPLES_PER_ROTATION][MAX_MEASUREMENTS] = {0};
 
 /*********************************************************
 *              PUBLIC FUNCTION DEFINITIONS

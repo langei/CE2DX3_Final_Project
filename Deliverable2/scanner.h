@@ -22,9 +22,17 @@
 #include "uart.h"
 
 /*********************************************************
-*                 FUNCTION PROTOTYPES
+*                    		 MACROS
 *********************************************************/
-#define MAX_MEASUREMENTS (20U)
+//SET MAX_SAMPLES_PER_ROTATION to one of the following:
+//Motor Step 2.8125 deg: 16 steps
+//Motor Step 5.625 deg: 32 steps
+//Motor Step 11.25 deg: 64 steps
+//Motor Step 22.5 deg: 128 steps
+//Motor Step 45 deg: 256 steps
+
+#define MAX_SAMPLES_PER_ROTATION		(256U)
+#define MAX_MEASUREMENTS 						(20U)
 
 
 /*********************************************************
@@ -54,7 +62,7 @@ typedef struct{
 *********************************************************/
 extern volatile TsStepParameters motor;
 extern volatile TsScannerParameters scanner;
-uint8_t transmission_data[motor.currentStep][MAX_MEASUREMENTS];
+extern uint8_t transmission_data[MAX_SAMPLES_PER_ROTATION][MAX_MEASUREMENTS];
 
 /*********************************************************
 *              PUBLIC FUNCTION DEFINITIONS

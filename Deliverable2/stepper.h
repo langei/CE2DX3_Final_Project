@@ -38,29 +38,20 @@ typedef enum{
 	STEP_CCW,
 }TeStepDirection;
 
-/*
-Motor Step 2.8125 deg
-(2.8125/360)*2048 = 16 steps
-
-Motor Step 5.625 deg
-(5.625/360)*2048 = 32 steps
-
-Motor Step 11.25 deg
-(11.25/360)*2048 = 64 steps
-
-Motor Step 22.5 deg
-(22.5/360)*2048 = 128 steps
-
-Motor Step 45 deg:
-(45/360)*2048 = 256 steps
-*/
-typedef enum{
-	STEP_28125 = (16U),
-	STEP_56250 = (32U),
-	STEP_11250 = (64U),
-	STEP_22500 = (128U),
-	STEP_45000 = (256U)
-}TeStepAngle;
+///*
+//Motor Step 2.8125 deg: 16 steps
+//Motor Step 5.625 deg: 32 steps
+//Motor Step 11.25 deg: 64 steps
+//Motor Step 22.5 deg: 128 steps
+//Motor Step 45 deg: 256 steps
+//*/
+//typedef enum{
+//	STEP_28125 = (16U),
+//	STEP_56250 = (32U),
+//	STEP_11250 = (64U),
+//	STEP_22500 = (128U),
+//	STEP_45000 = (256U)
+//}TeStepAngle;
 
 typedef enum{
 	STEP_OFF,
@@ -74,7 +65,7 @@ typedef enum{
 
 typedef struct{
 	TeStepDirection dir;
-	TeStepAngle angle;
+	uint16_t angle;
 	uint16_t currentStep;
 	TeStepState state;
 	TeStepOperation op;

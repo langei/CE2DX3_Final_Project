@@ -4,5 +4,5 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h i2c.h scanner.h \
-  stepper.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h scanner.h stepper.h \
+  i2c.h
