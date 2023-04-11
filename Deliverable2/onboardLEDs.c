@@ -21,7 +21,7 @@
 *                   	   MACROS
 *********************************************************/
 #define DELAY 1
-
+#define BIT(x)							(1 << x)
 
 /*********************************************************
 *                  FUNCTION DEFINITIONS
@@ -84,11 +84,22 @@ void FlashI2CRx(){
 }
 
 void SetLED1(){
-	GPIO_PORTN_DATA_R = 0b00000010;
+	GPIO_PORTN_DATA_R |= 0b00000010;
 }
 
 void SetLED2(){
-	GPIO_PORTN_DATA_R = 0b00000001;
+	GPIO_PORTN_DATA_R |= 0b00000001;
+}
+
+void ResetLED2(){
+	GPIO_PORTN_DATA_R &= ~BIT(0);
+}
+void ResetLED1(){
+	GPIO_PORTN_DATA_R &= ~BIT(1);
+}
+
+void FlipLED2(){
+	GPIO_PORTN_DATA_R ^= ~BIT(0);
 }
 
 //Flash Error D1&D2&D3&D4

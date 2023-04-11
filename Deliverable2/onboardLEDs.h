@@ -21,3 +21,6 @@ void FlashI2CRx(void);
 void onboardLEDs_Init(void);
 void SetLED1();
 void SetLED2();
+void ResetLED1();
+void ResetLED2();
+void FlipLED2();

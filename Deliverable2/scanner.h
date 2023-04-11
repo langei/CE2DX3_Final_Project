@@ -37,6 +37,7 @@
 #define NUM_SAMPLES									(STEPS_IN_ROTATION/STEP_SIZE)
 #define MAX_MEASUREMENTS 						(20U)
 #define DEV													(uint16_t)(0x29)
+#define MASK												(uint16_t)(0xFF)
 
 
 /*********************************************************
@@ -74,13 +75,14 @@ typedef struct{
 *********************************************************/
 extern volatile TsStepParameters motor;
 extern volatile TsScannerParameters scanner;
-extern uint16_t transmissionData[MAX_MEASUREMENTS][NUM_SAMPLES];
+extern volatile uint16_t transmissionData[MAX_MEASUREMENTS][NUM_SAMPLES];
 
 
 uint8_t dataReady = 0;
 uint8_t sensorState = 0;
 uint8_t measurementNum = 0;
 uint16_t distance = 0;
+uint16_t wordData = 0;
 int status = 0;
 	
 
@@ -104,7 +106,6 @@ void WaitForInt(void)
 
 void bootVL53L1X(void){
 	
-	// Booting ToF chip
 	while(sensorState==0){
 		status = VL53L1X_BootState(DEV, &sensorState);
 		SysTick_Wait10ms(10);
@@ -112,22 +113,65 @@ void bootVL53L1X(void){
 	
 	status = VL53L1X_ClearInterrupt(DEV);  // clear interrupt has to be called to enable next interrupt 
 	status = VL53L1X_SensorInit(DEV); 		 // initialize the sensor with the default setting
-	status = VL53L1X_StartRanging(DEV);    // enable the ranging
+	//status = VL53L1X_StartRanging(DEV);    // enable the ranging
+	
+	UART_printf("Success");
 }
 
 void scanYZ(void){
-	for(uint8_t i = 0; i < NUM_SAMPLES; i++){
-		step(motor.dir, motor.angle);
-		SysTick_Wait10ms(DELAY);
-		VL53L1X_GetDistance(DEV, &distance);
-		sprintf(printf_buffer,"%u\r\n", distance);
-		UART_printf(printf_buffer);
-		transmissionData[measurementNum][i] = distance;
+	if(measurementNum < MAX_MEASUREMENTS){
+		status = VL53L1X_StartRanging(DEV);
+		ResetLED2();
+		for(uint8_t i = 0; i < NUM_SAMPLES; i++){
+			step(motor.dir, motor.angle);
+			
+						
+			status = VL53L1X_GetDistance(DEV, &distance);					//The Measured Distance value
+			
+			transmissionData[measurementNum][i] = distance;
+			
+			sprintf(printf_buffer,"%u\r\n", distance);
+			UART_printf(printf_buffer);
+			
+			status = VL53L1X_ClearInterrupt(DEV); /* clear interrupt has to be called to enable next interrupt*/
+			
+			SysTick_Wait10ms(DELAY);
+		}
+		step(!(motor.dir), STEPS_IN_ROTATION);		// go back home
+		scanner.status = SC_COMPLETE;
+		measurementNum++;
+		SetLED2();
+		VL53L1X_StopRanging(DEV);
 	}
-	step(!(motor.dir), STEPS_IN_ROTATION);		// go back home
-	measurementNum++;
+}
+
+void transmitDistanceSerial(){
+	
+	SetLED1();
+	
+	uint8_t input = 0;
+	
+	//wait for the right transmition initiation code
+	while(1){
+		input = UART_InChar();		// take in a single byte
+		if (input == 's')
+			break;
+	}
+	
+	UART_OutChar(measurementNum);
+	UART_OutChar(NUM_SAMPLES);
+	
+	for(uint8_t i = 0; i < measurementNum; i++){
+		for(uint8_t j = 0; j < NUM_SAMPLES; j++){
+			UART_OutChar((char)(transmissionData[i][j] & MASK));
+			UART_OutChar((char)(transmissionData[i][j] >> 8));
+		}
+	}
+	scanner.state = SC_SCAN_MODE;
 	scanner.status = SC_COMPLETE;
-	motor.op = STEP_HOME;
+	measurementNum = 0;
+	
+	ResetLED1();
 }
 
 // Give clock to Port J and initalize as input GPIO
@@ -164,26 +208,22 @@ void GPIOJ_IRQHandler(void){
 
 	if((GPIO_PORTJ_RIS_R & BIT(0))){		// Read RIS register to check if interrupt occured
 		scanner.status ^= BIT(0);
-		GPIO_PORTM_ICR_R |= 0x01;     					// Acknowledge flag by setting proper bit in ICR register
+		GPIO_PORTJ_ICR_R |= 0x01;     					// Acknowledge flag by setting proper bit in ICR register
 	}
 	else if((GPIO_PORTJ_RIS_R & BIT(1))){
 		scanner.state ^= BIT(0);
-		GPIO_PORTM_ICR_R |= 0x02;     					// Acknowledge flag by setting proper bit in ICR register
+		GPIO_PORTJ_ICR_R |= 0x02;     					// Acknowledge flag by setting proper bit in ICR register
 	}
-	FlashLED2(1);													// Flash the LED D2 one time
-	GPIO_PORTJ_ICR_R = 0x03;     					// Acknowledge flag by setting proper bit in ICR register
 }
 
 
 void scanner_Init(){
+	onboardLEDs_Init();
 	UART_Init();
 	I2C_Init();
 	PortM_Init();
 	PortJ_Init();
 	PortJ_Interrupt_Init();
-	onboardLEDs_Init();
 	bootVL53L1X();
 	SetLED2();
-
-
 }
