@@ -31,7 +31,7 @@
 //Motor Step 22.5 deg: 128 steps
 //Motor Step 45 deg: 256 steps
 
-#define STEP_SIZE										(16U)
+#define STEP_SIZE										(256U)
 
 
 #define NUM_SAMPLES									(STEPS_IN_ROTATION/STEP_SIZE)
@@ -74,7 +74,7 @@ typedef struct{
 *********************************************************/
 extern volatile TsStepParameters motor;
 extern volatile TsScannerParameters scanner;
-extern uint16_t transmissionData[NUM_SAMPLES][MAX_MEASUREMENTS];
+extern uint16_t transmissionData[MAX_MEASUREMENTS][NUM_SAMPLES];
 
 
 uint8_t dataReady = 0;
@@ -120,7 +120,9 @@ void scanYZ(void){
 		step(motor.dir, motor.angle);
 		SysTick_Wait10ms(DELAY);
 		VL53L1X_GetDistance(DEV, &distance);
-		transmissionData[i][measurementNum] = distance;
+		sprintf(printf_buffer,"%u\r\n", distance);
+		UART_printf(printf_buffer);
+		transmissionData[measurementNum][i] = distance;
 	}
 	step(!(motor.dir), STEPS_IN_ROTATION);		// go back home
 	measurementNum++;

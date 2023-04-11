@@ -40,7 +40,7 @@ volatile TsScannerParameters scanner = {
 					.status = SC_COMPLETE,
 					.state = SC_SCAN_MODE
 };
-uint16_t transmissionData[NUM_SAMPLES][MAX_MEASUREMENTS] = {0};
+uint16_t transmissionData[MAX_MEASUREMENTS][NUM_SAMPLES] = {0};
 
 /*********************************************************
 *              PUBLIC FUNCTION DEFINITIONS
@@ -56,6 +56,9 @@ int main(void) {
 	while(1){
 		if(scanner.state == SC_SCAN_MODE && scanner.status == SC_SCANNING){
 			scanYZ();
+		}
+		if(scanner.state == SC_TRANSMIT_MODE){
+			
 		}
 		
 		
