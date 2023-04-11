@@ -1,11 +1,31 @@
+/* COMPENG 2DX3 Final Project
+ * Ivan Lange
+ * April 12, 2023
+ * main.c
+ *
+ *
+ * Assumes system clock of 12 MHz
+ */
+
+
+/*********************************************************
+*                   		INCLUDES
+*********************************************************/
 #include <stdint.h>
 #include "tm4c1294ncpdt.h"
-//#include "PLL.h"
 #include "SysTick.h"
 #include "onboardLEDs.h"
 
+
+/*********************************************************
+*                   	   MACROS
+*********************************************************/
 #define DELAY 1
 
+
+/*********************************************************
+*                  FUNCTION DEFINITIONS
+*********************************************************/
 //Flash D1
 void FlashLED1(int count) {
 		while(count--) {
@@ -62,7 +82,6 @@ void FlashI2CTx(){
 void FlashI2CRx(){
 	FlashLED2(1);
 }
-
 
 
 //Flash Error D1&D2&D3&D4

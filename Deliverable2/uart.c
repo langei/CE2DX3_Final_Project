@@ -1,10 +1,25 @@
-
+/* COMPENG 2DX3 Final Project
+ * Ivan Lange
+ * April 12, 2023
+ * main.c
+ *
+ *
+ * Assumes system clock of 12 MHz
+ */
+ 
+ 
+/*********************************************************
+*                       INCLUDES
+*********************************************************/
 #include "uart.h"
 #include "tm4c1294ncpdt.h"
 #include <stdint.h>
 #include <stdio.h>
 
 
+/*********************************************************
+*                 FUNCTION DECLARATIONS
+*********************************************************/
 //Initialize UART0, based on textbook.  Clock code modified.
 void UART_Init(void) {
 	SYSCTL_RCGCUART_R |= 0x0001; // activate UART0   
@@ -33,19 +48,19 @@ void UART_Init(void) {
 }
 
 // Wait for new input, then return ASCII code 
-	char UART_InChar(void){
+char UART_InChar(void){
 		while((UART0_FR_R&0x0010) != 0);		// wait until RXFE is 0   
 		return((char)(UART0_DR_R&0xFF));
 	} 
 	
 	// Wait for buffer to be not full, then output 
-	void UART_OutChar(char data){
+void UART_OutChar(char data){
 		while((UART0_FR_R&0x0020) != 0);	// wait until TXFF is 0   
 		UART0_DR_R = data;
 	} 
 	
 	//send a string of characters to uart
-	void UART_printf(const char* array){
+void UART_printf(const char* array){
 		int ptr=0;
 		while(array[ptr]){
 			UART_OutChar(array[ptr]);
@@ -53,7 +68,7 @@ void UART_Init(void) {
 		}
 	}
 	
-	void Status_Check(char* array, int status){
+void Status_Check(char* array, int status){
 			if (status != 0){
 				UART_printf(array);
 				sprintf(printf_buffer," failed with (%d)\r\n",status);

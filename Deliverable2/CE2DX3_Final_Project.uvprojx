@@ -385,6 +385,11 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
               <FileName>PLL.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\PLL.c</FilePath>
@@ -395,9 +400,19 @@
               <FilePath>.\SysTick.c</FilePath>
             </File>
             <File>
-              <FileName>CE2DX3_Final_Project.c</FileName>
+              <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\..\Downloads\CE2DX3_Final_Project.c</FilePath>
+              <FilePath>.\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>onboardLEDs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\onboardLEDs.c</FilePath>
+            </File>
+            <File>
+              <FileName>stepper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\stepper.h</FilePath>
             </File>
           </Files>
         </Group>

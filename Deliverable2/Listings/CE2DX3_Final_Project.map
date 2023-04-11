@@ -4,28 +4,14 @@ Component: Arm Compiler for Embedded 6.18 Tool: armlink [5e4cc100]
 
 Section Cross References
 
-    onboardleds.o(.text.FlashLED1) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashLED1) refers to onboardleds.o(.text.FlashLED1) for [Anonymous Symbol]
-    onboardleds.o(.text.FlashLED2) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashLED2) refers to onboardleds.o(.text.FlashLED2) for [Anonymous Symbol]
-    onboardleds.o(.text.FlashLED3) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashLED3) refers to onboardleds.o(.text.FlashLED3) for [Anonymous Symbol]
-    onboardleds.o(.text.FlashLED4) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashLED4) refers to onboardleds.o(.text.FlashLED4) for [Anonymous Symbol]
-    onboardleds.o(.text.FlashAllLEDs) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashAllLEDs) refers to onboardleds.o(.text.FlashAllLEDs) for [Anonymous Symbol]
-    onboardleds.o(.text.FlashI2CTx) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashI2CTx) refers to onboardleds.o(.text.FlashI2CTx) for [Anonymous Symbol]
-    onboardleds.o(.text.FlashI2CRx) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashI2CRx) refers to onboardleds.o(.text.FlashI2CRx) for [Anonymous Symbol]
-    onboardleds.o(.text.FlashI2CError) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.FlashI2CError) refers to onboardleds.o(.text.FlashI2CError) for [Anonymous Symbol]
-    onboardleds.o(.text.onboardLEDs_Init) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
-    onboardleds.o(.ARM.exidx.text.onboardLEDs_Init) refers to onboardleds.o(.text.onboardLEDs_Init) for [Anonymous Symbol]
+    main.o(.text.step) refers to systick.o(.text.SysTick_Wait1ms) for SysTick_Wait1ms
+    main.o(.ARM.exidx.text.step) refers to main.o(.text.step) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     pll.o(.ARM.exidx.text.PLL_Init) refers to pll.o(.text.PLL_Init) for [Anonymous Symbol]
     systick.o(.ARM.exidx.text.SysTick_Init) refers to systick.o(.text.SysTick_Init) for [Anonymous Symbol]
     systick.o(.ARM.exidx.text.SysTick_Wait) refers to systick.o(.text.SysTick_Wait) for [Anonymous Symbol]
     systick.o(.ARM.exidx.text.SysTick_Wait10ms) refers to systick.o(.text.SysTick_Wait10ms) for [Anonymous Symbol]
+    systick.o(.ARM.exidx.text.SysTick_Wait1ms) refers to systick.o(.text.SysTick_Wait1ms) for [Anonymous Symbol]
     uart.o(.text) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
     uart.o(.text) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
     uart.o(.text) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
@@ -69,7 +55,24 @@ Section Cross References
     uart.o(.bss.printf_buffer) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
     uart.o(.bss.printf_buffer) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
     uart.o(.bss.printf_buffer) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
-    ce2dx3_final_project.o(.ARM.exidx.text.main) refers to ce2dx3_final_project.o(.text.main) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashLED1) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashLED1) refers to onboardleds.o(.text.FlashLED1) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashLED2) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashLED2) refers to onboardleds.o(.text.FlashLED2) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashLED3) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashLED3) refers to onboardleds.o(.text.FlashLED3) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashLED4) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashLED4) refers to onboardleds.o(.text.FlashLED4) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashAllLEDs) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashAllLEDs) refers to onboardleds.o(.text.FlashAllLEDs) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashI2CTx) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashI2CTx) refers to onboardleds.o(.text.FlashI2CTx) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashI2CRx) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashI2CRx) refers to onboardleds.o(.text.FlashI2CRx) for [Anonymous Symbol]
+    onboardleds.o(.text.FlashI2CError) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.FlashI2CError) refers to onboardleds.o(.text.FlashI2CError) for [Anonymous Symbol]
+    onboardleds.o(.text.onboardLEDs_Init) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
+    onboardleds.o(.ARM.exidx.text.onboardLEDs_Init) refers to onboardleds.o(.text.onboardLEDs_Init) for [Anonymous Symbol]
     startup_msp432e401y_uvision.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_msp432e401y_uvision.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_msp432e401y_uvision.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -118,7 +121,7 @@ Section Cross References
     __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
-    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to ce2dx3_final_project.o(.text.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(.text.main) for main
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
     __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
     __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
@@ -220,6 +223,35 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
+    Removing main.o(.text), (0 bytes).
+    Removing main.o(.text.step), (76 bytes).
+    Removing main.o(.ARM.exidx.text.step), (8 bytes).
+    Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.ARM.use_no_argv), (4 bytes).
+    Removing pll.o(.text), (0 bytes).
+    Removing pll.o(.text.PLL_Init), (218 bytes).
+    Removing pll.o(.ARM.exidx.text.PLL_Init), (8 bytes).
+    Removing systick.o(.text), (0 bytes).
+    Removing systick.o(.text.SysTick_Init), (26 bytes).
+    Removing systick.o(.ARM.exidx.text.SysTick_Init), (8 bytes).
+    Removing systick.o(.text.SysTick_Wait), (32 bytes).
+    Removing systick.o(.ARM.exidx.text.SysTick_Wait), (8 bytes).
+    Removing systick.o(.text.SysTick_Wait10ms), (62 bytes).
+    Removing systick.o(.ARM.exidx.text.SysTick_Wait10ms), (8 bytes).
+    Removing systick.o(.text.SysTick_Wait1ms), (58 bytes).
+    Removing systick.o(.ARM.exidx.text.SysTick_Wait1ms), (8 bytes).
+    Removing uart.o(.text), (0 bytes).
+    Removing uart.o(.text.UART_Init), (184 bytes).
+    Removing uart.o(.ARM.exidx.text.UART_Init), (8 bytes).
+    Removing uart.o(.text.UART_InChar), (20 bytes).
+    Removing uart.o(.ARM.exidx.text.UART_InChar), (8 bytes).
+    Removing uart.o(.text.UART_OutChar), (18 bytes).
+    Removing uart.o(.ARM.exidx.text.UART_OutChar), (8 bytes).
+    Removing uart.o(.text.UART_printf), (48 bytes).
+    Removing uart.o(.ARM.exidx.text.UART_printf), (8 bytes).
+    Removing uart.o(.text.Status_Check), (172 bytes).
+    Removing uart.o(.ARM.exidx.text.Status_Check), (8 bytes).
+    Removing uart.o(.bss.printf_buffer), (1023 bytes).
     Removing onboardleds.o(.text), (0 bytes).
     Removing onboardleds.o(.text.FlashLED1), (56 bytes).
     Removing onboardleds.o(.ARM.exidx.text.FlashLED1), (8 bytes).
@@ -239,37 +271,12 @@ Removing Unused input sections from the image.
     Removing onboardleds.o(.ARM.exidx.text.FlashI2CError), (8 bytes).
     Removing onboardleds.o(.text.onboardLEDs_Init), (186 bytes).
     Removing onboardleds.o(.ARM.exidx.text.onboardLEDs_Init), (8 bytes).
-    Removing pll.o(.text), (0 bytes).
-    Removing pll.o(.text.PLL_Init), (226 bytes).
-    Removing pll.o(.ARM.exidx.text.PLL_Init), (8 bytes).
-    Removing systick.o(.text), (0 bytes).
-    Removing systick.o(.text.SysTick_Init), (26 bytes).
-    Removing systick.o(.ARM.exidx.text.SysTick_Init), (8 bytes).
-    Removing systick.o(.text.SysTick_Wait), (32 bytes).
-    Removing systick.o(.ARM.exidx.text.SysTick_Wait), (8 bytes).
-    Removing systick.o(.text.SysTick_Wait10ms), (62 bytes).
-    Removing systick.o(.ARM.exidx.text.SysTick_Wait10ms), (8 bytes).
-    Removing uart.o(.text), (0 bytes).
-    Removing uart.o(.text.UART_Init), (184 bytes).
-    Removing uart.o(.ARM.exidx.text.UART_Init), (8 bytes).
-    Removing uart.o(.text.UART_InChar), (20 bytes).
-    Removing uart.o(.ARM.exidx.text.UART_InChar), (8 bytes).
-    Removing uart.o(.text.UART_OutChar), (18 bytes).
-    Removing uart.o(.ARM.exidx.text.UART_OutChar), (8 bytes).
-    Removing uart.o(.text.UART_printf), (48 bytes).
-    Removing uart.o(.ARM.exidx.text.UART_printf), (8 bytes).
-    Removing uart.o(.text.Status_Check), (172 bytes).
-    Removing uart.o(.ARM.exidx.text.Status_Check), (8 bytes).
-    Removing uart.o(.bss.printf_buffer), (1023 bytes).
-    Removing ce2dx3_final_project.o(.text), (0 bytes).
-    Removing ce2dx3_final_project.o(.ARM.exidx.text.main), (8 bytes).
-    Removing ce2dx3_final_project.o(.ARM.use_no_argv), (4 bytes).
     Removing system_msp432e401y.o(.text), (0 bytes).
     Removing system_msp432e401y.o(.text.SystemCoreClockUpdate), (152 bytes).
     Removing system_msp432e401y.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_msp432e401y.o(.ARM.exidx.text.SystemInit), (8 bytes).
 
-48 unused section(s) (total 2769 bytes) removed from the image.
+52 unused section(s) (total 2911 bytes) removed from the image.
 
 ==============================================================================
 
@@ -348,11 +355,11 @@ Image Symbol Table
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
-    CE2DX3_Final_Project.c                   0x00000000   Number         0  ce2dx3_final_project.o ABSOLUTE
     PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
     RTE/Device/MSP432E401Y/startup_msp432e401y_uvision.s 0x00000000   Number         0  startup_msp432e401y_uvision.o ABSOLUTE
     SysTick.c                                0x00000000   Number         0  systick.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    main.c                                   0x00000000   Number         0  main.o ABSOLUTE
     onboardLEDs.c                            0x00000000   Number         0  onboardleds.o ABSOLUTE
     system_msp432e401y.c                     0x00000000   Number         0  system_msp432e401y.o ABSOLUTE
     uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
@@ -413,7 +420,7 @@ Image Symbol Table
     .text                                    0x00000350   Section        2  use_no_semi.o(.text)
     .text                                    0x00000352   Section        0  indicate_semi.o(.text)
     [Anonymous Symbol]                       0x00000354   Section        0  system_msp432e401y.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x00000378   Section        0  ce2dx3_final_project.o(.text.main)
+    [Anonymous Symbol]                       0x00000378   Section        0  main.o(.text.main)
     $v0                                      0x0000037c   Number         0  fpinit.o(x$fpl$fpinit)
     x$fpl$fpinit                             0x0000037c   Section       26  fpinit.o(x$fpl$fpinit)
     .bss                                     0x20000008   Section       96  libspace.o(.bss)
@@ -637,7 +644,7 @@ Image Symbol Table
     __use_no_semihosting_swi                 0x00000351   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x00000353   Thumb Code     0  indicate_semi.o(.text)
     SystemInit                               0x00000355   Thumb Code    36  system_msp432e401y.o(.text.SystemInit)
-    main                                     0x00000379   Thumb Code     4  ce2dx3_final_project.o(.text.main)
+    main                                     0x00000379   Thumb Code     4  main.o(.text.main)
     _fp_init                                 0x0000037d   Thumb Code    26  fpinit.o(x$fpl$fpinit)
     __fplib_config_fpu_vfp                   0x00000395   Thumb Code     0  fpinit.o(x$fpl$fpinit)
     __fplib_config_pureend_doubles           0x00000395   Thumb Code     0  fpinit.o(x$fpl$fpinit)
@@ -661,86 +668,86 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000001fc   Data   RO           80    RESET               startup_msp432e401y_uvision.o
-    0x000001fc   0x000001fc   0x00000008   Code   RO          134  * !!!main             c_w.l(__main.o)
-    0x00000204   0x00000204   0x00000034   Code   RO          308    !!!scatter          c_w.l(__scatter.o)
-    0x00000238   0x00000238   0x0000001a   Code   RO          310    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x00000000   0x00000000   0x000001fc   Data   RO           86    RESET               startup_msp432e401y_uvision.o
+    0x000001fc   0x000001fc   0x00000008   Code   RO          140  * !!!main             c_w.l(__main.o)
+    0x00000204   0x00000204   0x00000034   Code   RO          314    !!!scatter          c_w.l(__scatter.o)
+    0x00000238   0x00000238   0x0000001a   Code   RO          316    !!handler_copy      c_w.l(__scatter_copy.o)
     0x00000252   0x00000252   0x00000002   PAD
-    0x00000254   0x00000254   0x0000001c   Code   RO          312    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x00000270   0x00000270   0x00000002   Code   RO          170    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x00000272   0x00000272   0x00000004   Code   RO          176    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          179    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          181    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          184    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          186    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          188    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          191    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          193    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          195    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          197    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          199    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          201    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          203    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          205    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          207    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          209    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          211    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          215    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          217    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          219    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          221    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000002   Code   RO          222    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
-    0x00000278   0x00000278   0x00000002   Code   RO          244    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          259    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          261    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          264    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          267    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          269    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          272    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000002   Code   RO          273    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x0000027c   0x0000027c   0x00000000   Code   RO          136    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x0000027c   0x0000027c   0x00000000   Code   RO          145    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x0000027c   0x0000027c   0x00000006   Code   RO          157    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x00000282   0x00000282   0x00000000   Code   RO          147    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x00000282   0x00000282   0x00000004   Code   RO          148    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x00000286   0x00000286   0x00000000   Code   RO          150    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x00000286   0x00000286   0x00000008   Code   RO          151    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x0000028e   0x0000028e   0x00000002   Code   RO          174    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x00000290   0x00000290   0x00000000   Code   RO          224    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x00000290   0x00000290   0x00000004   Code   RO          225    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x00000294   0x00000294   0x00000006   Code   RO          226    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x00000254   0x00000254   0x0000001c   Code   RO          318    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x00000270   0x00000270   0x00000002   Code   RO          176    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x00000272   0x00000272   0x00000004   Code   RO          182    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          185    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          187    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          190    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          192    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          194    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          197    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          199    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          201    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          203    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          205    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          207    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          209    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          211    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          213    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          215    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          217    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          221    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          223    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          225    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          227    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000002   Code   RO          228    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
+    0x00000278   0x00000278   0x00000002   Code   RO          250    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          265    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          267    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          270    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          273    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          275    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          278    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000002   Code   RO          279    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          142    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          151    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x0000027c   0x0000027c   0x00000006   Code   RO          163    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x00000282   0x00000282   0x00000000   Code   RO          153    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x00000282   0x00000282   0x00000004   Code   RO          154    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x00000286   0x00000286   0x00000000   Code   RO          156    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x00000286   0x00000286   0x00000008   Code   RO          157    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0000028e   0x0000028e   0x00000002   Code   RO          180    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x00000290   0x00000290   0x00000000   Code   RO          230    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x00000290   0x00000290   0x00000004   Code   RO          231    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x00000294   0x00000294   0x00000006   Code   RO          232    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x0000029a   0x0000029a   0x00000002   PAD
-    0x0000029c   0x0000029c   0x0000003c   Code   RO           81  * .text               startup_msp432e401y_uvision.o
-    0x000002d8   0x000002d8   0x00000006   Code   RO          132    .text               c_w.l(heapauxi.o)
-    0x000002de   0x000002de   0x0000004a   Code   RO          161    .text               c_w.l(sys_stackheap_outer.o)
-    0x00000328   0x00000328   0x00000012   Code   RO          163    .text               c_w.l(exit.o)
+    0x0000029c   0x0000029c   0x0000003c   Code   RO           87  * .text               startup_msp432e401y_uvision.o
+    0x000002d8   0x000002d8   0x00000006   Code   RO          138    .text               c_w.l(heapauxi.o)
+    0x000002de   0x000002de   0x0000004a   Code   RO          167    .text               c_w.l(sys_stackheap_outer.o)
+    0x00000328   0x00000328   0x00000012   Code   RO          169    .text               c_w.l(exit.o)
     0x0000033a   0x0000033a   0x00000002   PAD
-    0x0000033c   0x0000033c   0x00000008   Code   RO          171    .text               c_w.l(libspace.o)
-    0x00000344   0x00000344   0x0000000c   Code   RO          234    .text               c_w.l(sys_exit.o)
-    0x00000350   0x00000350   0x00000002   Code   RO          249    .text               c_w.l(use_no_semi.o)
-    0x00000352   0x00000352   0x00000000   Code   RO          251    .text               c_w.l(indicate_semi.o)
+    0x0000033c   0x0000033c   0x00000008   Code   RO          177    .text               c_w.l(libspace.o)
+    0x00000344   0x00000344   0x0000000c   Code   RO          240    .text               c_w.l(sys_exit.o)
+    0x00000350   0x00000350   0x00000002   Code   RO          255    .text               c_w.l(use_no_semi.o)
+    0x00000352   0x00000352   0x00000000   Code   RO          257    .text               c_w.l(indicate_semi.o)
     0x00000352   0x00000352   0x00000002   PAD
-    0x00000354   0x00000354   0x00000024   Code   RO           90    .text.SystemInit    system_msp432e401y.o
-    0x00000378   0x00000378   0x00000004   Code   RO           70    .text.main          ce2dx3_final_project.o
-    0x0000037c   0x0000037c   0x0000001a   Code   RO          232    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x00000354   0x00000354   0x00000024   Code   RO           96    .text.SystemInit    system_msp432e401y.o
+    0x00000378   0x00000378   0x00000004   Code   RO            4    .text.main          main.o
+    0x0000037c   0x0000037c   0x0000001a   Code   RO          238    x$fpl$fpinit        fz_wm.l(fpinit.o)
     0x00000396   0x00000396   0x00000002   PAD
-    0x00000398   0x00000398   0x00000020   Data   RO          307    Region$$Table       anon$$obj.o
+    0x00000398   0x00000398   0x00000020   Data   RO          313    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000003b8, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x000003b8   0x00000004   Data   RW           92    .data.SystemCoreClock  system_msp432e401y.o
+    0x20000000   0x000003b8   0x00000004   Data   RW           98    .data.SystemCoreClock  system_msp432e401y.o
 
 
     Execution Region ER_ZI (Exec base: 0x20000008, Load base: 0x000003bc, Size: 0x00000260, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000008        -       0x00000060   Zero   RW          172    .bss                c_w.l(libspace.o)
-    0x20000068        -       0x00000000   Zero   RW           79    HEAP                startup_msp432e401y_uvision.o
-    0x20000068        -       0x00000200   Zero   RW           78    STACK               startup_msp432e401y_uvision.o
+    0x20000008        -       0x00000060   Zero   RW          178    .bss                c_w.l(libspace.o)
+    0x20000068        -       0x00000000   Zero   RW           85    HEAP                startup_msp432e401y_uvision.o
+    0x20000068        -       0x00000200   Zero   RW           84    STACK               startup_msp432e401y_uvision.o
 
 
 ==============================================================================
@@ -750,12 +757,12 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-         4          0          0          0          0        507   ce2dx3_final_project.o
+         4          0          0          0          0       1683   main.o
         60         22        508          0        512       1020   startup_msp432e401y_uvision.o
-        36          0          0          4          0       7268   system_msp432e401y.o
+        36          0          0          4          0       7267   system_msp432e401y.o
 
     ----------------------------------------------------------------------
-       100         22        540          4        512       8795   Object Totals
+       100         22        540          4        512       9970   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -806,8 +813,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       412         38        540          4        608       9319   Grand Totals
-       412         38        540          4        608       9319   ELF Image Totals
+       412         38        540          4        608      10494   Grand Totals
+       412         38        540          4        608      10494   ELF Image Totals
        412         38        540          4          0          0   ROM Totals
 
 ==============================================================================
