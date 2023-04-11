@@ -83,6 +83,13 @@ void FlashI2CRx(){
 	FlashLED2(1);
 }
 
+void SetLED1(){
+	GPIO_PORTN_DATA_R = 0b00000010;
+}
+
+void SetLED2(){
+	GPIO_PORTN_DATA_R = 0b00000001;
+}
 
 //Flash Error D1&D2&D3&D4
 void FlashI2CError(int count) {

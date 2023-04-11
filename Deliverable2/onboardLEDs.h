@@ -19,3 +19,5 @@ void FlashI2CError(int count);
 void FlashI2CTx(void);
 void FlashI2CRx(void);
 void onboardLEDs_Init(void);
+void SetLED1();
+void SetLED2();

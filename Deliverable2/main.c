@@ -17,7 +17,8 @@
 #include "tm4c1294ncpdt.h"
 #include "uart.h"
 #include "onboardLEDs.h"
-#include "stepper.h"
+#include "VL53L1X_api.h"
+#include "scanner.h"
 
 /*********************************************************
 *                        MACROS
@@ -38,22 +39,17 @@ volatile TsStepParameters motor = {
 /*********************************************************
 *              PUBLIC FUNCTION DEFINITIONS
 *********************************************************/
-// Enable interrupts
-void EnableInt(void)
-{    __asm("    cpsie   i\n");
-}
 
-// Disable interrupts
-void DisableInt(void)
-{    __asm("    cpsid   i\n");
-}
 
-// Low power wait
-void WaitForInt(void)
-{    __asm("    wfi\n");
-}
 
 int main(void) {
+	PLL_Init();           // Set system clock to 120 MHz
+	SysTick_Init();
+	scanner_Init();
+	
+	while(1){
+		
+	}
 	
 	return 0;
 }

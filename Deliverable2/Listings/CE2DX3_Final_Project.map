@@ -4,8 +4,25 @@ Component: Arm Compiler for Embedded 6.18 Tool: armlink [5e4cc100]
 
 Section Cross References
 
+    main.o(.ARM.exidx.text.I2C_Init) refers to main.o(.text.I2C_Init) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.PortH_Init) refers to main.o(.text.PortH_Init) for [Anonymous Symbol]
     main.o(.text.step) refers to systick.o(.text.SysTick_Wait1ms) for SysTick_Wait1ms
     main.o(.ARM.exidx.text.step) refers to main.o(.text.step) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.EnableInt) refers to main.o(.text.EnableInt) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.DisableInt) refers to main.o(.text.DisableInt) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.WaitForInt) refers to main.o(.text.WaitForInt) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.PortJ_Init) refers to main.o(.text.PortJ_Init) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.PortJ_Interrupt_Init) refers to main.o(.text.PortJ_Interrupt_Init) for [Anonymous Symbol]
+    main.o(.text.GPIOJ_IRQHandler) refers to main.o(.data.motor) for motor
+    main.o(.text.GPIOJ_IRQHandler) refers to onboardleds.o(.text.FlashLED2) for FlashLED2
+    main.o(.ARM.exidx.text.GPIOJ_IRQHandler) refers to main.o(.text.GPIOJ_IRQHandler) for [Anonymous Symbol]
+    main.o(.text.scanner_Init) refers to onboardleds.o(.text.onboardLEDs_Init) for onboardLEDs_Init
+    main.o(.text.scanner_Init) refers to onboardleds.o(.text.SetLED1) for SetLED1
+    main.o(.ARM.exidx.text.scanner_Init) refers to main.o(.text.scanner_Init) for [Anonymous Symbol]
+    main.o(.text.main) refers to pll.o(.text.PLL_Init) for PLL_Init
+    main.o(.text.main) refers to systick.o(.text.SysTick_Init) for SysTick_Init
+    main.o(.text.main) refers to onboardleds.o(.text.onboardLEDs_Init) for onboardLEDs_Init
+    main.o(.text.main) refers to onboardleds.o(.text.SetLED1) for SetLED1
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     pll.o(.ARM.exidx.text.PLL_Init) refers to pll.o(.text.PLL_Init) for [Anonymous Symbol]
     systick.o(.ARM.exidx.text.SysTick_Init) refers to systick.o(.text.SysTick_Init) for [Anonymous Symbol]
@@ -69,15 +86,188 @@ Section Cross References
     onboardleds.o(.ARM.exidx.text.FlashI2CTx) refers to onboardleds.o(.text.FlashI2CTx) for [Anonymous Symbol]
     onboardleds.o(.text.FlashI2CRx) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
     onboardleds.o(.ARM.exidx.text.FlashI2CRx) refers to onboardleds.o(.text.FlashI2CRx) for [Anonymous Symbol]
+    onboardleds.o(.ARM.exidx.text.SetLED1) refers to onboardleds.o(.text.SetLED1) for [Anonymous Symbol]
+    onboardleds.o(.ARM.exidx.text.SetLED2) refers to onboardleds.o(.text.SetLED2) for [Anonymous Symbol]
     onboardleds.o(.text.FlashI2CError) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
     onboardleds.o(.ARM.exidx.text.FlashI2CError) refers to onboardleds.o(.text.FlashI2CError) for [Anonymous Symbol]
     onboardleds.o(.text.onboardLEDs_Init) refers to systick.o(.text.SysTick_Wait10ms) for SysTick_Wait10ms
     onboardleds.o(.ARM.exidx.text.onboardLEDs_Init) refers to onboardleds.o(.text.onboardLEDs_Init) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.beginTxI2C) refers to vl53l1_platform_2dx4.o(.text.beginTxI2C) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.beginRxI2C) refers to vl53l1_platform_2dx4.o(.text.beginRxI2C) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.writeRegisterIndex) refers to onboardleds.o(.text.FlashI2CTx) for FlashI2CTx
+    vl53l1_platform_2dx4.o(.text.writeRegisterIndex) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.writeRegisterIndex) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.writeRegisterIndex) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.writeRegisterIndex_nostop) refers to onboardleds.o(.text.FlashI2CTx) for FlashI2CTx
+    vl53l1_platform_2dx4.o(.text.writeRegisterIndex_nostop) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.writeRegisterIndex_nostop) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.writeRegisterIndex_nostop) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex_nostop) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.writeI2C) refers to onboardleds.o(.text.FlashI2CTx) for FlashI2CTx
+    vl53l1_platform_2dx4.o(.text.writeI2C) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.writeI2C) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.writeI2C) refers to vl53l1_platform_2dx4.o(.text.writeI2C) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.readI2C) refers to onboardleds.o(.text.FlashI2CRx) for FlashI2CRx
+    vl53l1_platform_2dx4.o(.text.readI2C) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.readI2C) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.readI2C) refers to vl53l1_platform_2dx4.o(.text.readI2C) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_WriteMulti) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for writeRegisterIndex
+    vl53l1_platform_2dx4.o(.text.VL53L1_WriteMulti) refers to vl53l1_platform_2dx4.o(.text.writeI2C) for writeI2C
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WriteMulti) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WriteMulti) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_ReadMulti) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for writeRegisterIndex
+    vl53l1_platform_2dx4.o(.text.VL53L1_ReadMulti) refers to onboardleds.o(.text.FlashI2CRx) for FlashI2CRx
+    vl53l1_platform_2dx4.o(.text.VL53L1_ReadMulti) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.VL53L1_ReadMulti) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_ReadMulti) refers to vl53l1_platform_2dx4.o(.text.VL53L1_ReadMulti) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex_nostop) for writeRegisterIndex_nostop
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) refers to onboardleds.o(.text.FlashI2CTx) for FlashI2CTx
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WrByte) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for writeRegisterIndex
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) refers to onboardleds.o(.text.FlashI2CTx) for FlashI2CTx
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WrWord) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_WrDWord) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for writeRegisterIndex
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WrDWord) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrDWord) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for writeRegisterIndex
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) refers to onboardleds.o(.text.FlashI2CRx) for FlashI2CRx
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_RdByte) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for writeRegisterIndex
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) refers to onboardleds.o(.text.FlashI2CRx) for FlashI2CRx
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_RdWord) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord) refers to vl53l1_platform_2dx4.o(.text.writeRegisterIndex) for writeRegisterIndex
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord) refers to onboardleds.o(.text.FlashI2CRx) for FlashI2CRx
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord) refers to onboardleds.o(.text.FlashI2CError) for FlashI2CError
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_RdDWord) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord) for [Anonymous Symbol]
+    vl53l1_platform_2dx4.o(.text.VL53L1_WaitMs) refers to systick.o(.text.SysTick_Wait) for SysTick_Wait
+    vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WaitMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WaitMs) for [Anonymous Symbol]
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSWVersion) refers to vl53l1x_api.o(.text.VL53L1X_GetSWVersion) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetI2CAddress) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetI2CAddress) refers to vl53l1x_api.o(.text.VL53L1X_SetI2CAddress) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SensorInit) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.text.VL53L1X_SensorInit) refers to vl53l1x_api.o(.rodata.VL51L1X_DEFAULT_CONFIGURATION) for VL51L1X_DEFAULT_CONFIGURATION
+    vl53l1x_api.o(.text.VL53L1X_SensorInit) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.text.VL53L1X_SensorInit) refers to uart.o(.text.Status_Check) for Status_Check
+    vl53l1x_api.o(.text.VL53L1X_SensorInit) refers to uart.o(.text.UART_printf) for UART_printf
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SensorInit) refers to vl53l1x_api.o(.text.VL53L1X_SensorInit) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_ClearInterrupt) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_ClearInterrupt) refers to vl53l1x_api.o(.text.VL53L1X_ClearInterrupt) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_StartRanging) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_StartRanging) refers to vl53l1x_api.o(.text.VL53L1X_StartRanging) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_CheckForDataReady) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_CheckForDataReady) refers to vl53l1x_api.o(.text.VL53L1X_CheckForDataReady) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_StopRanging) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_StopRanging) refers to vl53l1x_api.o(.text.VL53L1X_StopRanging) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetInterruptPolarity) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.text.VL53L1X_SetInterruptPolarity) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetInterruptPolarity) refers to vl53l1x_api.o(.text.VL53L1X_SetInterruptPolarity) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetInterruptPolarity) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetInterruptPolarity) refers to vl53l1x_api.o(.text.VL53L1X_GetInterruptPolarity) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetTimingBudgetInMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.text.VL53L1X_SetTimingBudgetInMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for VL53L1_WrWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetTimingBudgetInMs) refers to vl53l1x_api.o(.text.VL53L1X_SetTimingBudgetInMs) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetDistanceMode) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceMode) refers to vl53l1x_api.o(.text.VL53L1X_GetDistanceMode) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetTimingBudgetInMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetTimingBudgetInMs) refers to vl53l1x_api.o(.text.VL53L1X_GetTimingBudgetInMs) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetDistanceMode) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.text.VL53L1X_SetDistanceMode) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.text.VL53L1X_SetDistanceMode) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for VL53L1_WrWord
+    vl53l1x_api.o(.text.VL53L1X_SetDistanceMode) refers to vl53l1x_api.o(.text.VL53L1X_SetTimingBudgetInMs) for VL53L1X_SetTimingBudgetInMs
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetDistanceMode) refers to vl53l1x_api.o(.text.VL53L1X_SetDistanceMode) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetInterMeasurementInMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.text.VL53L1X_SetInterMeasurementInMs) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    vl53l1x_api.o(.text.VL53L1X_SetInterMeasurementInMs) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
+    vl53l1x_api.o(.text.VL53L1X_SetInterMeasurementInMs) refers to dfixu.o(x$fpl$dfixu) for __aeabi_d2uiz
+    vl53l1x_api.o(.text.VL53L1X_SetInterMeasurementInMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrDWord) for VL53L1_WrDWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetInterMeasurementInMs) refers to vl53l1x_api.o(.text.VL53L1X_SetInterMeasurementInMs) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord) for VL53L1_RdDWord
+    vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
+    vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs) refers to ddiv.o(x$fpl$ddiv) for __aeabi_ddiv
+    vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs) refers to dfix.o(x$fpl$dfix) for __aeabi_d2iz
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetInterMeasurementInMs) refers to vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_BootState) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_BootState) refers to vl53l1x_api.o(.text.VL53L1X_BootState) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetSensorId) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSensorId) refers to vl53l1x_api.o(.text.VL53L1X_GetSensorId) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetDistance) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistance) refers to vl53l1x_api.o(.text.VL53L1X_GetDistance) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetSignalPerSpad) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.text.VL53L1X_GetSignalPerSpad) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    vl53l1x_api.o(.text.VL53L1X_GetSignalPerSpad) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
+    vl53l1x_api.o(.text.VL53L1X_GetSignalPerSpad) refers to ddiv.o(x$fpl$ddiv) for __aeabi_ddiv
+    vl53l1x_api.o(.text.VL53L1X_GetSignalPerSpad) refers to dfix.o(x$fpl$dfix) for __aeabi_d2iz
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSignalPerSpad) refers to vl53l1x_api.o(.text.VL53L1X_GetSignalPerSpad) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetAmbientPerSpad) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.text.VL53L1X_GetAmbientPerSpad) refers to dflt_clz.o(x$fpl$dfltu) for __aeabi_ui2d
+    vl53l1x_api.o(.text.VL53L1X_GetAmbientPerSpad) refers to dmul.o(x$fpl$dmul) for __aeabi_dmul
+    vl53l1x_api.o(.text.VL53L1X_GetAmbientPerSpad) refers to ddiv.o(x$fpl$ddiv) for __aeabi_ddiv
+    vl53l1x_api.o(.text.VL53L1X_GetAmbientPerSpad) refers to dfix.o(x$fpl$dfix) for __aeabi_d2iz
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetAmbientPerSpad) refers to vl53l1x_api.o(.text.VL53L1X_GetAmbientPerSpad) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetSignalRate) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSignalRate) refers to vl53l1x_api.o(.text.VL53L1X_GetSignalRate) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetSpadNb) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSpadNb) refers to vl53l1x_api.o(.text.VL53L1X_GetSpadNb) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetAmbientRate) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetAmbientRate) refers to vl53l1x_api.o(.text.VL53L1X_GetAmbientRate) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetRangeStatus) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.text.VL53L1X_GetRangeStatus) refers to vl53l1x_api.o(.rodata.status_rtn) for status_rtn
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetRangeStatus) refers to vl53l1x_api.o(.text.VL53L1X_GetRangeStatus) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetResult) refers to vl53l1_platform_2dx4.o(.text.VL53L1_ReadMulti) for VL53L1_ReadMulti
+    vl53l1x_api.o(.text.VL53L1X_GetResult) refers to vl53l1x_api.o(.rodata.status_rtn) for status_rtn
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetResult) refers to vl53l1x_api.o(.text.VL53L1X_GetResult) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetOffset) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for VL53L1_WrWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetOffset) refers to vl53l1x_api.o(.text.VL53L1X_SetOffset) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetOffset) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetOffset) refers to vl53l1x_api.o(.text.VL53L1X_GetOffset) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetXtalk) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for VL53L1_WrWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetXtalk) refers to vl53l1x_api.o(.text.VL53L1X_SetXtalk) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetXtalk) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord) for VL53L1_RdDWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetXtalk) refers to vl53l1x_api.o(.text.VL53L1X_GetXtalk) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetDistanceThreshold) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.text.VL53L1X_SetDistanceThreshold) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.text.VL53L1X_SetDistanceThreshold) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for VL53L1_WrWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetDistanceThreshold) refers to vl53l1x_api.o(.text.VL53L1X_SetDistanceThreshold) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdWindow) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceThresholdWindow) refers to vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdWindow) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdLow) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceThresholdLow) refers to vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdLow) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdHigh) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceThresholdHigh) refers to vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdHigh) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetROICenter) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetROICenter) refers to vl53l1x_api.o(.text.VL53L1X_SetROICenter) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetROICenter) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetROICenter) refers to vl53l1x_api.o(.text.VL53L1X_GetROICenter) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetROI) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.text.VL53L1X_SetROI) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetROI) refers to vl53l1x_api.o(.text.VL53L1X_SetROI) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetROI_XY) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetROI_XY) refers to vl53l1x_api.o(.text.VL53L1X_GetROI_XY) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetSignalThreshold) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for VL53L1_WrWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetSignalThreshold) refers to vl53l1x_api.o(.text.VL53L1X_SetSignalThreshold) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetSignalThreshold) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSignalThreshold) refers to vl53l1x_api.o(.text.VL53L1X_GetSignalThreshold) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_SetSigmaThreshold) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrWord) for VL53L1_WrWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetSigmaThreshold) refers to vl53l1x_api.o(.text.VL53L1X_SetSigmaThreshold) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_GetSigmaThreshold) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdWord) for VL53L1_RdWord
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSigmaThreshold) refers to vl53l1x_api.o(.text.VL53L1X_GetSigmaThreshold) for [Anonymous Symbol]
+    vl53l1x_api.o(.text.VL53L1X_StartTemperatureUpdate) refers to vl53l1_platform_2dx4.o(.text.VL53L1_WrByte) for VL53L1_WrByte
+    vl53l1x_api.o(.text.VL53L1X_StartTemperatureUpdate) refers to vl53l1_platform_2dx4.o(.text.VL53L1_RdByte) for VL53L1_RdByte
+    vl53l1x_api.o(.ARM.exidx.text.VL53L1X_StartTemperatureUpdate) refers to vl53l1x_api.o(.text.VL53L1X_StartTemperatureUpdate) for [Anonymous Symbol]
     startup_msp432e401y_uvision.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_msp432e401y_uvision.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_msp432e401y_uvision.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_msp432e401y_uvision.o(RESET) refers to startup_msp432e401y_uvision.o(STACK) for __initial_sp
     startup_msp432e401y_uvision.o(RESET) refers to startup_msp432e401y_uvision.o(.text) for Reset_Handler
+    startup_msp432e401y_uvision.o(RESET) refers to main.o(.text.GPIOJ_IRQHandler) for GPIOJ_IRQHandler
     startup_msp432e401y_uvision.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_msp432e401y_uvision.o(.text) refers to system_msp432e401y.o(.text.SystemInit) for SystemInit
     startup_msp432e401y_uvision.o(.text) refers to __main.o(!!!main) for __main
@@ -111,6 +301,25 @@ Section Cross References
     _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) refers (Weak) to _printf_dec.o(.text) for _printf_int_dec
     _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) refers (Special) to _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017) for _printf_percent_end
     __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    ddiv.o(x$fpl$drdiv) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    ddiv.o(x$fpl$drdiv) refers to ddiv.o(x$fpl$ddiv) for ddiv_entry
+    ddiv.o(x$fpl$ddiv) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    ddiv.o(x$fpl$ddiv) refers to dretinf.o(x$fpl$dretinf) for __fpl_dretinf
+    ddiv.o(x$fpl$ddiv) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfix.o(x$fpl$dfix) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfix.o(x$fpl$dfix) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfix.o(x$fpl$dfixr) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfix.o(x$fpl$dfixr) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfixu.o(x$fpl$dfixu) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfixu.o(x$fpl$dfixu) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dfixu.o(x$fpl$dfixur) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dfixu.o(x$fpl$dfixur) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
+    dflt_clz.o(x$fpl$dfltu) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dflt_clz.o(x$fpl$dflt) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dflt_clz.o(x$fpl$dfltn) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dmul.o(x$fpl$dmul) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dmul.o(x$fpl$dmul) refers to dretinf.o(x$fpl$dretinf) for __fpl_dretinf
+    dmul.o(x$fpl$dmul) refers to dnaninf.o(x$fpl$dnaninf) for __fpl_dnaninf
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
@@ -118,6 +327,8 @@ Section Cross References
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
     __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
     _printf_char_common.o(.text) refers to __printf.o(.text) for __printf
+    dnaninf.o(x$fpl$dnaninf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
+    dretinf.o(x$fpl$dretinf) refers (Special) to usenofp.o(x$fpl$usenofp) for __I$use$fp
     __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
@@ -224,19 +435,33 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing main.o(.text), (0 bytes).
+    Removing main.o(.text.I2C_Init), (108 bytes).
+    Removing main.o(.ARM.exidx.text.I2C_Init), (8 bytes).
+    Removing main.o(.text.PortH_Init), (70 bytes).
+    Removing main.o(.ARM.exidx.text.PortH_Init), (8 bytes).
     Removing main.o(.text.step), (76 bytes).
     Removing main.o(.ARM.exidx.text.step), (8 bytes).
+    Removing main.o(.text.EnableInt), (4 bytes).
+    Removing main.o(.ARM.exidx.text.EnableInt), (8 bytes).
+    Removing main.o(.text.DisableInt), (4 bytes).
+    Removing main.o(.ARM.exidx.text.DisableInt), (8 bytes).
+    Removing main.o(.text.WaitForInt), (4 bytes).
+    Removing main.o(.ARM.exidx.text.WaitForInt), (8 bytes).
+    Removing main.o(.text.PortJ_Init), (90 bytes).
+    Removing main.o(.ARM.exidx.text.PortJ_Init), (8 bytes).
+    Removing main.o(.text.PortJ_Interrupt_Init), (48 bytes).
+    Removing main.o(.ARM.exidx.text.PortJ_Interrupt_Init), (8 bytes).
+    Removing main.o(.ARM.exidx.text.GPIOJ_IRQHandler), (8 bytes).
+    Removing main.o(.text.scanner_Init), (204 bytes).
+    Removing main.o(.ARM.exidx.text.scanner_Init), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing pll.o(.text), (0 bytes).
-    Removing pll.o(.text.PLL_Init), (218 bytes).
     Removing pll.o(.ARM.exidx.text.PLL_Init), (8 bytes).
     Removing systick.o(.text), (0 bytes).
-    Removing systick.o(.text.SysTick_Init), (26 bytes).
     Removing systick.o(.ARM.exidx.text.SysTick_Init), (8 bytes).
     Removing systick.o(.text.SysTick_Wait), (32 bytes).
     Removing systick.o(.ARM.exidx.text.SysTick_Wait), (8 bytes).
-    Removing systick.o(.text.SysTick_Wait10ms), (62 bytes).
     Removing systick.o(.ARM.exidx.text.SysTick_Wait10ms), (8 bytes).
     Removing systick.o(.text.SysTick_Wait1ms), (58 bytes).
     Removing systick.o(.ARM.exidx.text.SysTick_Wait1ms), (8 bytes).
@@ -255,7 +480,6 @@ Removing Unused input sections from the image.
     Removing onboardleds.o(.text), (0 bytes).
     Removing onboardleds.o(.text.FlashLED1), (56 bytes).
     Removing onboardleds.o(.ARM.exidx.text.FlashLED1), (8 bytes).
-    Removing onboardleds.o(.text.FlashLED2), (56 bytes).
     Removing onboardleds.o(.ARM.exidx.text.FlashLED2), (8 bytes).
     Removing onboardleds.o(.text.FlashLED3), (56 bytes).
     Removing onboardleds.o(.ARM.exidx.text.FlashLED3), (8 bytes).
@@ -267,16 +491,137 @@ Removing Unused input sections from the image.
     Removing onboardleds.o(.ARM.exidx.text.FlashI2CTx), (8 bytes).
     Removing onboardleds.o(.text.FlashI2CRx), (40 bytes).
     Removing onboardleds.o(.ARM.exidx.text.FlashI2CRx), (8 bytes).
+    Removing onboardleds.o(.ARM.exidx.text.SetLED1), (8 bytes).
+    Removing onboardleds.o(.text.SetLED2), (14 bytes).
+    Removing onboardleds.o(.ARM.exidx.text.SetLED2), (8 bytes).
     Removing onboardleds.o(.text.FlashI2CError), (80 bytes).
     Removing onboardleds.o(.ARM.exidx.text.FlashI2CError), (8 bytes).
-    Removing onboardleds.o(.text.onboardLEDs_Init), (186 bytes).
     Removing onboardleds.o(.ARM.exidx.text.onboardLEDs_Init), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text), (0 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.beginTxI2C), (24 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.beginTxI2C), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.beginRxI2C), (24 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.beginRxI2C), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.writeRegisterIndex), (104 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.writeRegisterIndex), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.writeRegisterIndex_nostop), (104 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.writeRegisterIndex_nostop), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.writeI2C), (184 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.writeI2C), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.readI2C), (68 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.readI2C), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_WriteMulti), (44 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WriteMulti), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_ReadMulti), (126 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_ReadMulti), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_WrByte), (86 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WrByte), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_WrWord), (134 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WrWord), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_WrDWord), (32 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WrDWord), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_RdByte), (90 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_RdByte), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_RdWord), (158 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_RdWord), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_RdDWord), (264 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_RdDWord), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.text.VL53L1_WaitMs), (30 bytes).
+    Removing vl53l1_platform_2dx4.o(.ARM.exidx.text.VL53L1_WaitMs), (8 bytes).
+    Removing vl53l1_platform_2dx4.o(.bss._I2CBuffer), (256 bytes).
+    Removing vl53l1x_api.o(.text), (0 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetSWVersion), (18 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSWVersion), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetI2CAddress), (12 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetI2CAddress), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SensorInit), (300 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SensorInit), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_ClearInterrupt), (12 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_ClearInterrupt), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_StartRanging), (12 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_StartRanging), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_CheckForDataReady), (62 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_CheckForDataReady), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_StopRanging), (12 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_StopRanging), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetInterruptPolarity), (56 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetInterruptPolarity), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetInterruptPolarity), (36 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetInterruptPolarity), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetTimingBudgetInMs), (260 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetTimingBudgetInMs), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetDistanceMode), (40 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceMode), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetTimingBudgetInMs), (158 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetTimingBudgetInMs), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetDistanceMode), (312 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetDistanceMode), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetInterMeasurementInMs), (80 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetInterMeasurementInMs), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetInterMeasurementInMs), (112 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetInterMeasurementInMs), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_BootState), (32 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_BootState), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetSensorId), (34 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSensorId), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetDistance), (26 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistance), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetSignalPerSpad), (112 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSignalPerSpad), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetAmbientPerSpad), (112 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetAmbientPerSpad), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetSignalRate), (28 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSignalRate), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetSpadNb), (26 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSpadNb), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetAmbientRate), (28 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetAmbientRate), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetRangeStatus), (52 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetRangeStatus), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetResult), (96 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetResult), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetOffset), (40 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetOffset), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetOffset), (30 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetOffset), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetXtalk), (50 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetXtalk), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetXtalk), (34 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetXtalk), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetDistanceThreshold), (100 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetDistanceThreshold), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdWindow), (30 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceThresholdWindow), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdLow), (26 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceThresholdLow), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetDistanceThresholdHigh), (26 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetDistanceThresholdHigh), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetROICenter), (12 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetROICenter), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetROICenter), (26 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetROICenter), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetROI), (90 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetROI), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetROI_XY), (42 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetROI_XY), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetSignalThreshold), (14 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetSignalThreshold), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetSignalThreshold), (28 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSignalThreshold), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_SetSigmaThreshold), (26 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_SetSigmaThreshold), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_GetSigmaThreshold), (28 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_GetSigmaThreshold), (8 bytes).
+    Removing vl53l1x_api.o(.text.VL53L1X_StartTemperatureUpdate), (142 bytes).
+    Removing vl53l1x_api.o(.ARM.exidx.text.VL53L1X_StartTemperatureUpdate), (8 bytes).
+    Removing vl53l1x_api.o(.rodata.VL51L1X_DEFAULT_CONFIGURATION), (91 bytes).
+    Removing vl53l1x_api.o(.rodata.status_rtn), (24 bytes).
     Removing system_msp432e401y.o(.text), (0 bytes).
     Removing system_msp432e401y.o(.text.SystemCoreClockUpdate), (152 bytes).
     Removing system_msp432e401y.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing system_msp432e401y.o(.ARM.exidx.text.SystemInit), (8 bytes).
 
-52 unused section(s) (total 2911 bytes) removed from the image.
+186 unused section(s) (total 8068 bytes) removed from the image.
 
 ==============================================================================
 
@@ -354,15 +699,25 @@ Image Symbol Table
     ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
+    ../fplib/ddiv.s                          0x00000000   Number         0  ddiv.o ABSOLUTE
+    ../fplib/dfix.s                          0x00000000   Number         0  dfix.o ABSOLUTE
+    ../fplib/dfixu.s                         0x00000000   Number         0  dfixu.o ABSOLUTE
+    ../fplib/dflt.s                          0x00000000   Number         0  dflt_clz.o ABSOLUTE
+    ../fplib/dmul.s                          0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/dnaninf.s                       0x00000000   Number         0  dnaninf.o ABSOLUTE
+    ../fplib/dretinf.s                       0x00000000   Number         0  dretinf.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
+    ../fplib/usenofp.s                       0x00000000   Number         0  usenofp.o ABSOLUTE
     PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
     RTE/Device/MSP432E401Y/startup_msp432e401y_uvision.s 0x00000000   Number         0  startup_msp432e401y_uvision.o ABSOLUTE
     SysTick.c                                0x00000000   Number         0  systick.o ABSOLUTE
+    VL53L1X_api.c                            0x00000000   Number         0  vl53l1x_api.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     main.c                                   0x00000000   Number         0  main.o ABSOLUTE
     onboardLEDs.c                            0x00000000   Number         0  onboardleds.o ABSOLUTE
     system_msp432e401y.c                     0x00000000   Number         0  system_msp432e401y.o ABSOLUTE
     uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
+    vl53l1_platform_2dx4.c                   0x00000000   Number         0  vl53l1_platform_2dx4.o ABSOLUTE
     RESET                                    0x00000000   Section      508  startup_msp432e401y_uvision.o(RESET)
     !!!main                                  0x000001fc   Section        8  __main.o(!!!main)
     !!!scatter                               0x00000204   Section       52  __scatter.o(!!!scatter)
@@ -419,16 +774,23 @@ Image Symbol Table
     .text                                    0x00000344   Section        0  sys_exit.o(.text)
     .text                                    0x00000350   Section        2  use_no_semi.o(.text)
     .text                                    0x00000352   Section        0  indicate_semi.o(.text)
-    [Anonymous Symbol]                       0x00000354   Section        0  system_msp432e401y.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x00000378   Section        0  main.o(.text.main)
-    $v0                                      0x0000037c   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x0000037c   Section       26  fpinit.o(x$fpl$fpinit)
-    .bss                                     0x20000008   Section       96  libspace.o(.bss)
-    Heap_Mem                                 0x20000068   Data           0  startup_msp432e401y_uvision.o(HEAP)
-    Stack_Mem                                0x20000068   Data         512  startup_msp432e401y_uvision.o(STACK)
-    HEAP                                     0x20000068   Section        0  startup_msp432e401y_uvision.o(HEAP)
-    STACK                                    0x20000068   Section      512  startup_msp432e401y_uvision.o(STACK)
-    __initial_sp                             0x20000268   Data           0  startup_msp432e401y_uvision.o(STACK)
+    [Anonymous Symbol]                       0x00000354   Section        0  onboardleds.o(.text.FlashLED2)
+    [Anonymous Symbol]                       0x0000038c   Section        0  main.o(.text.GPIOJ_IRQHandler)
+    [Anonymous Symbol]                       0x000003b0   Section        0  pll.o(.text.PLL_Init)
+    [Anonymous Symbol]                       0x0000048c   Section        0  onboardleds.o(.text.SetLED1)
+    [Anonymous Symbol]                       0x0000049c   Section        0  systick.o(.text.SysTick_Init)
+    [Anonymous Symbol]                       0x000004b8   Section        0  systick.o(.text.SysTick_Wait10ms)
+    [Anonymous Symbol]                       0x000004f8   Section        0  system_msp432e401y.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x0000051c   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x000005ec   Section        0  onboardleds.o(.text.onboardLEDs_Init)
+    $v0                                      0x000006a6   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x000006a6   Section       26  fpinit.o(x$fpl$fpinit)
+    .bss                                     0x20000010   Section       96  libspace.o(.bss)
+    Heap_Mem                                 0x20000070   Data           0  startup_msp432e401y_uvision.o(HEAP)
+    Stack_Mem                                0x20000070   Data         512  startup_msp432e401y_uvision.o(STACK)
+    HEAP                                     0x20000070   Section        0  startup_msp432e401y_uvision.o(HEAP)
+    STACK                                    0x20000070   Section      512  startup_msp432e401y_uvision.o(STACK)
+    __initial_sp                             0x20000270   Data           0  startup_msp432e401y_uvision.o(STACK)
 
     Global Symbols
 
@@ -556,7 +918,6 @@ Image Symbol Table
     GPIOF_IRQHandler                         0x000002b7   Thumb Code     0  startup_msp432e401y_uvision.o(.text)
     GPIOG_IRQHandler                         0x000002b7   Thumb Code     0  startup_msp432e401y_uvision.o(.text)
     GPIOH_IRQHandler                         0x000002b7   Thumb Code     0  startup_msp432e401y_uvision.o(.text)
-    GPIOJ_IRQHandler                         0x000002b7   Thumb Code     0  startup_msp432e401y_uvision.o(.text)
     GPIOK_IRQHandler                         0x000002b7   Thumb Code     0  startup_msp432e401y_uvision.o(.text)
     GPIOL_IRQHandler                         0x000002b7   Thumb Code     0  startup_msp432e401y_uvision.o(.text)
     GPIOM_IRQHandler                         0x000002b7   Thumb Code     0  startup_msp432e401y_uvision.o(.text)
@@ -643,16 +1004,24 @@ Image Symbol Table
     __I$use$semihosting                      0x00000351   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x00000351   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x00000353   Thumb Code     0  indicate_semi.o(.text)
-    SystemInit                               0x00000355   Thumb Code    36  system_msp432e401y.o(.text.SystemInit)
-    main                                     0x00000379   Thumb Code     4  main.o(.text.main)
-    _fp_init                                 0x0000037d   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x00000395   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x00000395   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x00000398   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000003b8   Number         0  anon$$obj.o(Region$$Table)
+    FlashLED2                                0x00000355   Thumb Code    56  onboardleds.o(.text.FlashLED2)
+    GPIOJ_IRQHandler                         0x0000038d   Thumb Code    36  main.o(.text.GPIOJ_IRQHandler)
+    PLL_Init                                 0x000003b1   Thumb Code   218  pll.o(.text.PLL_Init)
+    SetLED1                                  0x0000048d   Thumb Code    14  onboardleds.o(.text.SetLED1)
+    SysTick_Init                             0x0000049d   Thumb Code    26  systick.o(.text.SysTick_Init)
+    SysTick_Wait10ms                         0x000004b9   Thumb Code    62  systick.o(.text.SysTick_Wait10ms)
+    SystemInit                               0x000004f9   Thumb Code    36  system_msp432e401y.o(.text.SystemInit)
+    main                                     0x0000051d   Thumb Code   206  main.o(.text.main)
+    onboardLEDs_Init                         0x000005ed   Thumb Code   186  onboardleds.o(.text.onboardLEDs_Init)
+    _fp_init                                 0x000006a7   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x000006bf   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x000006bf   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x000006c0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000006e0   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_msp432e401y.o(.data.SystemCoreClock)
-    __libspace_start                         0x20000008   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20000068   Data           0  libspace.o(.bss)
+    motor                                    0x20000004   Data           8  main.o(.data.motor)
+    __libspace_start                         0x20000010   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000070   Data           0  libspace.o(.bss)
 
 
 
@@ -662,92 +1031,104 @@ Memory Map of the image
 
   Image Entry point : 0x0000029d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000003bc, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000006ec, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000003b8, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000006e0, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000001fc   Data   RO           86    RESET               startup_msp432e401y_uvision.o
-    0x000001fc   0x000001fc   0x00000008   Code   RO          140  * !!!main             c_w.l(__main.o)
-    0x00000204   0x00000204   0x00000034   Code   RO          314    !!!scatter          c_w.l(__scatter.o)
-    0x00000238   0x00000238   0x0000001a   Code   RO          316    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x00000000   0x00000000   0x000001fc   Data   RO          242    RESET               startup_msp432e401y_uvision.o
+    0x000001fc   0x000001fc   0x00000008   Code   RO          296  * !!!main             c_w.l(__main.o)
+    0x00000204   0x00000204   0x00000034   Code   RO          495    !!!scatter          c_w.l(__scatter.o)
+    0x00000238   0x00000238   0x0000001a   Code   RO          497    !!handler_copy      c_w.l(__scatter_copy.o)
     0x00000252   0x00000252   0x00000002   PAD
-    0x00000254   0x00000254   0x0000001c   Code   RO          318    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x00000270   0x00000270   0x00000002   Code   RO          176    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x00000272   0x00000272   0x00000004   Code   RO          182    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          185    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          187    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          190    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          192    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          194    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          197    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          199    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          201    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          203    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          205    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          207    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          209    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          211    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          213    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          215    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          217    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          221    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          223    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          225    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000000   Code   RO          227    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
-    0x00000276   0x00000276   0x00000002   Code   RO          228    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
-    0x00000278   0x00000278   0x00000002   Code   RO          250    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          265    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          267    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          270    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          273    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          275    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000000   Code   RO          278    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x0000027a   0x0000027a   0x00000002   Code   RO          279    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x0000027c   0x0000027c   0x00000000   Code   RO          142    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x0000027c   0x0000027c   0x00000000   Code   RO          151    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x0000027c   0x0000027c   0x00000006   Code   RO          163    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x00000282   0x00000282   0x00000000   Code   RO          153    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x00000282   0x00000282   0x00000004   Code   RO          154    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x00000286   0x00000286   0x00000000   Code   RO          156    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x00000286   0x00000286   0x00000008   Code   RO          157    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x0000028e   0x0000028e   0x00000002   Code   RO          180    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x00000290   0x00000290   0x00000000   Code   RO          230    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x00000290   0x00000290   0x00000004   Code   RO          231    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x00000294   0x00000294   0x00000006   Code   RO          232    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x00000254   0x00000254   0x0000001c   Code   RO          499    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x00000270   0x00000270   0x00000002   Code   RO          357    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x00000272   0x00000272   0x00000004   Code   RO          363    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          366    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          368    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          371    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          373    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          375    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          378    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          380    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          382    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          384    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          386    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          388    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          390    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          392    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          394    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          396    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          398    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          402    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          404    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          406    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000000   Code   RO          408    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
+    0x00000276   0x00000276   0x00000002   Code   RO          409    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
+    0x00000278   0x00000278   0x00000002   Code   RO          431    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          446    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          448    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          451    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          454    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          456    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000000   Code   RO          459    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x0000027a   0x0000027a   0x00000002   Code   RO          460    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          318    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          332    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x0000027c   0x0000027c   0x00000006   Code   RO          344    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x00000282   0x00000282   0x00000000   Code   RO          334    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x00000282   0x00000282   0x00000004   Code   RO          335    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x00000286   0x00000286   0x00000000   Code   RO          337    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x00000286   0x00000286   0x00000008   Code   RO          338    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0000028e   0x0000028e   0x00000002   Code   RO          361    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x00000290   0x00000290   0x00000000   Code   RO          411    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x00000290   0x00000290   0x00000004   Code   RO          412    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x00000294   0x00000294   0x00000006   Code   RO          413    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x0000029a   0x0000029a   0x00000002   PAD
-    0x0000029c   0x0000029c   0x0000003c   Code   RO           87  * .text               startup_msp432e401y_uvision.o
-    0x000002d8   0x000002d8   0x00000006   Code   RO          138    .text               c_w.l(heapauxi.o)
-    0x000002de   0x000002de   0x0000004a   Code   RO          167    .text               c_w.l(sys_stackheap_outer.o)
-    0x00000328   0x00000328   0x00000012   Code   RO          169    .text               c_w.l(exit.o)
+    0x0000029c   0x0000029c   0x0000003c   Code   RO          243  * .text               startup_msp432e401y_uvision.o
+    0x000002d8   0x000002d8   0x00000006   Code   RO          294    .text               c_w.l(heapauxi.o)
+    0x000002de   0x000002de   0x0000004a   Code   RO          348    .text               c_w.l(sys_stackheap_outer.o)
+    0x00000328   0x00000328   0x00000012   Code   RO          350    .text               c_w.l(exit.o)
     0x0000033a   0x0000033a   0x00000002   PAD
-    0x0000033c   0x0000033c   0x00000008   Code   RO          177    .text               c_w.l(libspace.o)
-    0x00000344   0x00000344   0x0000000c   Code   RO          240    .text               c_w.l(sys_exit.o)
-    0x00000350   0x00000350   0x00000002   Code   RO          255    .text               c_w.l(use_no_semi.o)
-    0x00000352   0x00000352   0x00000000   Code   RO          257    .text               c_w.l(indicate_semi.o)
+    0x0000033c   0x0000033c   0x00000008   Code   RO          358    .text               c_w.l(libspace.o)
+    0x00000344   0x00000344   0x0000000c   Code   RO          421    .text               c_w.l(sys_exit.o)
+    0x00000350   0x00000350   0x00000002   Code   RO          436    .text               c_w.l(use_no_semi.o)
+    0x00000352   0x00000352   0x00000000   Code   RO          438    .text               c_w.l(indicate_semi.o)
     0x00000352   0x00000352   0x00000002   PAD
-    0x00000354   0x00000354   0x00000024   Code   RO           96    .text.SystemInit    system_msp432e401y.o
-    0x00000378   0x00000378   0x00000004   Code   RO            4    .text.main          main.o
-    0x0000037c   0x0000037c   0x0000001a   Code   RO          238    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x00000396   0x00000396   0x00000002   PAD
-    0x00000398   0x00000398   0x00000020   Data   RO          313    Region$$Table       anon$$obj.o
+    0x00000354   0x00000354   0x00000038   Code   RO           80    .text.FlashLED2     onboardleds.o
+    0x0000038c   0x0000038c   0x00000024   Code   RO           18    .text.GPIOJ_IRQHandler  main.o
+    0x000003b0   0x000003b0   0x000000da   Code   RO           34    .text.PLL_Init      pll.o
+    0x0000048a   0x0000048a   0x00000002   PAD
+    0x0000048c   0x0000048c   0x0000000e   Code   RO           92    .text.SetLED1       onboardleds.o
+    0x0000049a   0x0000049a   0x00000002   PAD
+    0x0000049c   0x0000049c   0x0000001a   Code   RO           43    .text.SysTick_Init  systick.o
+    0x000004b6   0x000004b6   0x00000002   PAD
+    0x000004b8   0x000004b8   0x0000003e   Code   RO           47    .text.SysTick_Wait10ms  systick.o
+    0x000004f6   0x000004f6   0x00000002   PAD
+    0x000004f8   0x000004f8   0x00000024   Code   RO          252    .text.SystemInit    system_msp432e401y.o
+    0x0000051c   0x0000051c   0x000000ce   Code   RO           22    .text.main          main.o
+    0x000005ea   0x000005ea   0x00000002   PAD
+    0x000005ec   0x000005ec   0x000000ba   Code   RO           98    .text.onboardLEDs_Init  onboardleds.o
+    0x000006a6   0x000006a6   0x0000001a   Code   RO          419    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x000006c0   0x000006c0   0x00000020   Data   RO          494    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000003b8, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x000006e0, Size: 0x0000000c, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x000003b8   0x00000004   Data   RW           98    .data.SystemCoreClock  system_msp432e401y.o
+    0x20000000   0x000006e0   0x00000004   Data   RW          254    .data.SystemCoreClock  system_msp432e401y.o
+    0x20000004   0x000006e4   0x00000008   Data   RW           24    .data.motor         main.o
 
 
-    Execution Region ER_ZI (Exec base: 0x20000008, Load base: 0x000003bc, Size: 0x00000260, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000010, Load base: 0x000006ec, Size: 0x00000260, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000008        -       0x00000060   Zero   RW          178    .bss                c_w.l(libspace.o)
-    0x20000068        -       0x00000000   Zero   RW           85    HEAP                startup_msp432e401y_uvision.o
-    0x20000068        -       0x00000200   Zero   RW           84    STACK               startup_msp432e401y_uvision.o
+    0x20000010        -       0x00000060   Zero   RW          359    .bss                c_w.l(libspace.o)
+    0x20000070        -       0x00000000   Zero   RW          241    HEAP                startup_msp432e401y_uvision.o
+    0x20000070        -       0x00000200   Zero   RW          240    STACK               startup_msp432e401y_uvision.o
 
 
 ==============================================================================
@@ -757,14 +1138,17 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-         4          0          0          0          0       1683   main.o
+       242          0          0          8          0       3106   main.o
+       256          0          0          0          0       2417   onboardleds.o
+       218          0          0          0          0        761   pll.o
         60         22        508          0        512       1020   startup_msp432e401y_uvision.o
         36          0          0          4          0       7267   system_msp432e401y.o
+        88          0          0          0          0       1508   systick.o
 
     ----------------------------------------------------------------------
-       100         22        540          4        512       9970   Object Totals
+       910         22        540         12        512      16079   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         0          0          0          0          0          0   (incl. Padding)
+        10          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -793,8 +1177,8 @@ Image component sizes
         26          0          0          0          0        116   fpinit.o
 
     ----------------------------------------------------------------------
-       312         16          0          0         96        700   Library Totals
-        10          0          0          0          0          0   (incl. Padding)
+       310         16          0          0         96        700   Library Totals
+         8          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -804,7 +1188,7 @@ Image component sizes
         26          0          0          0          0        116   fz_wm.l
 
     ----------------------------------------------------------------------
-       312         16          0          0         96        700   Library Totals
+       310         16          0          0         96        700   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -813,15 +1197,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       412         38        540          4        608      10494   Grand Totals
-       412         38        540          4        608      10494   ELF Image Totals
-       412         38        540          4          0          0   ROM Totals
+      1220         38        540         12        608      16543   Grand Totals
+      1220         38        540         12        608      16543   ELF Image Totals
+      1220         38        540         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                  952 (   0.93kB)
-    Total RW  Size (RW Data + ZI Data)               612 (   0.60kB)
-    Total ROM Size (Code + RO Data + RW Data)        956 (   0.93kB)
+    Total RO  Size (Code + RO Data)                 1760 (   1.72kB)
+    Total RW  Size (RW Data + ZI Data)               620 (   0.61kB)
+    Total ROM Size (Code + RO Data + RW Data)       1772 (   1.73kB)
 
 ==============================================================================
 

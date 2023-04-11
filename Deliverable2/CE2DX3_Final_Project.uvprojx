@@ -410,9 +410,24 @@
               <FilePath>.\onboardLEDs.c</FilePath>
             </File>
             <File>
-              <FileName>stepper.h</FileName>
+              <FileName>vl53l1_platform_2dx4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\vl53l1_platform_2dx4.c</FilePath>
+            </File>
+            <File>
+              <FileName>VL53L1X_api.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\VL53L1X_api.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\stepper.h</FilePath>
+              <FilePath>.\i2c.h</FilePath>
+            </File>
+            <File>
+              <FileName>scanner.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\scanner.h</FilePath>
             </File>
           </Files>
         </Group>
