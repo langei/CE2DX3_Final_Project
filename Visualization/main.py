@@ -53,7 +53,7 @@ for i in range(measurementNum):
         print(temp)
         z = math.cos(startingAngle*math.pi/180)*temp
         y = math.sin(startingAngle*math.pi/180)*temp
-        f.write('{0:d} {1:f} {2:f} \n'.format(i*300, y, z))
+        f.write('{0:d} {1:f} {2:f} \n'.format(i*600, y, z))
         startingAngle = startingAngle - anglePerSample
 f.close()
 

@@ -233,7 +233,6 @@ VL53L1X_ERROR VL53L1X_SensorInit(uint16_t dev)
 	status = 0;
 	for (Addr = 0x2D; Addr <= 0x87; Addr++){
 		VL53L1_WrByte(dev, Addr, VL51L1X_DEFAULT_CONFIGURATION[Addr - 0x2D]);
-		
 		// verify configurations
 		VL53L1_RdByte(dev, Addr, &tmp);
 		//sprintf(printf_buffer,"tmp(0x%x), VL51L1X_DEFAULT(0x%x)\r\n",tmp,VL51L1X_DEFAULT_CONFIGURATION[Addr - 0x2D]);

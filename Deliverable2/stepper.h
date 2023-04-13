@@ -91,25 +91,25 @@ void step(TeStepDirection dir, uint16_t num_steps){
 	
 	
 	for(uint16_t i = 0; i < num_steps; i++){		// loop through the number of steps
-		GPIO_PORTM_DATA_R = (dir == STEP_CW) ? cw_sequence[i % NUM_SEQUENCE] : ccw_sequence[i % NUM_SEQUENCE];
+		GPIO_PORTM_DATA_R &= ~0xF;
+		GPIO_PORTM_DATA_R |= (dir == STEP_CW) ? cw_sequence[i % NUM_SEQUENCE] : ccw_sequence[i % NUM_SEQUENCE];
 		SysTick_Wait1ms(DELAY);
 		
-		if(motor.currentStep == STEPS_IN_ROTATION - motor.angle){		// if current step is 
-			motor.op = STEP_HOME;
-		}
-		
-		if(motor.dir == STEP_CW){		// increment the step count
-			motor.currentStep = (motor.currentStep+1)%STEPS_IN_ROTATION;
-		}
-		else if(motor.dir == STEP_CCW){		// increment step count if counter clockwise
-			if(motor.currentStep >= 0){
-				motor.currentStep = (motor.currentStep-1);
-			}
-			else{
-				motor.currentStep = STEPS_IN_ROTATION-1;
-			}
-		}
+//		if(motor.currentStep == STEPS_IN_ROTATION - motor.angle){		// if current step is 
+//			motor.op = STEP_HOME;
+//		}
+//		
+//		if(motor.dir == STEP_CW){		// increment the step count
+//			motor.currentStep = (motor.currentStep+1)%STEPS_IN_ROTATION;
+//		}
+//		else if(motor.dir == STEP_CCW){		// increment step count if counter clockwise
+//			if(motor.currentStep >= 0){
+//				motor.currentStep = (motor.currentStep-1);
+//			}
+//			else{
+//				motor.currentStep = STEPS_IN_ROTATION-1;
+//			}
+//		}
 	}
-	return;
 }
  

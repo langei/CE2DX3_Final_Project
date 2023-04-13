@@ -31,7 +31,7 @@
 //Motor Step 22.5 deg: 128 steps
 //Motor Step 45 deg: 256 steps
 
-#define STEP_SIZE										(256U)
+#define STEP_SIZE										(256)
 
 
 #define NUM_SAMPLES									(STEPS_IN_ROTATION/STEP_SIZE)
@@ -80,12 +80,12 @@ extern volatile uint16_t transmissionData[MAX_MEASUREMENTS][NUM_SAMPLES];
 
 uint8_t dataReady = 0;
 uint8_t sensorState = 0;
+uint8_t rangeStatus;
 uint8_t measurementNum = 0;
 uint16_t distance = 0;
 uint16_t wordData = 0;
 int status = 0;
 	
-
 /*********************************************************
 *              PUBLIC FUNCTION DEFINITIONS
 *********************************************************/
@@ -120,28 +120,32 @@ void bootVL53L1X(void){
 
 void scanYZ(void){
 	if(measurementNum < MAX_MEASUREMENTS){
-		status = VL53L1X_StartRanging(DEV);
 		ResetLED2();
 		for(uint8_t i = 0; i < NUM_SAMPLES; i++){
 			step(motor.dir, motor.angle);
 			
-						
+			status = VL53L1X_StartRanging(DEV);
+//			rangeStatus = 1; 
+//			while (rangeStatus != 0){
+//				status = VL53L1X_GetRangeStatus(DEV, &rangeStatus);
+
+//			}
 			status = VL53L1X_GetDistance(DEV, &distance);					//The Measured Distance value
-			
-			transmissionData[measurementNum][i] = distance;
+			status = VL53L1X_StopRanging(DEV);
 			
 			sprintf(printf_buffer,"%u\r\n", distance);
 			UART_printf(printf_buffer);
 			
-			status = VL53L1X_ClearInterrupt(DEV); /* clear interrupt has to be called to enable next interrupt*/
+			transmissionData[measurementNum][i] = distance;
 			
+			status = VL53L1X_ClearInterrupt(DEV); /* clear interrupt has to be called to enable next interrupt*/
 			SysTick_Wait10ms(DELAY);
 		}
 		step(!(motor.dir), STEPS_IN_ROTATION);		// go back home
 		scanner.status = SC_COMPLETE;
 		measurementNum++;
 		SetLED2();
-		VL53L1X_StopRanging(DEV);
+
 	}
 }
 

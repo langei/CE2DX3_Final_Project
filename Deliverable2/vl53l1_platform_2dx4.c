@@ -89,7 +89,7 @@ int8_t writeRegisterIndex(uint16_t index) {
   I2C0_MCS_R =  0x03&0xFF;				// See Reference Manual Chapter 19
 	FlashI2CTx();
 
-  SysTick_Wait(120);			// YMH - It can take up to 60% of I2C clock to set the bit
+  SysTick_Wait(1200);			// YMH - It can take up to 60% of I2C clock to set the bit
 														// so a wait is necessary. See TRM.
 	
   while(I2C0_MCS_R&I2C_MCS_BUSY){};// wait for transmission done
@@ -104,7 +104,7 @@ int8_t writeRegisterIndex(uint16_t index) {
   I2C0_MCS_R = 0x05&0xFF;
 	FlashI2CTx();	
 	
-	SysTick_Wait(120);			// YMH - It can take up to 60% of I2C clock to set the bit
+	SysTick_Wait(1200);			// YMH - It can take up to 60% of I2C clock to set the bit
 														// so a wait is necessary. See TRM.
   while(I2C0_MCS_R&I2C_MCS_BUSY){};// wait for transmission done
                                           // check error bits
@@ -126,7 +126,7 @@ int8_t writeRegisterIndex_nostop(uint16_t index) {
   I2C0_MCS_R =  0x03&0xFF;				// See Reference Manual Chapter 19
 	FlashI2CTx();	
 	
-	SysTick_Wait(120);			// YMH - It can take up to 60% of I2C clock to set the bit
+	SysTick_Wait(1200);			// YMH - It can take up to 60% of I2C clock to set the bit
 														// so a wait is necessary. See TRM.
   while(I2C0_MCS_R&I2C_MCS_BUSY){};// wait for transmission done
                                           // check error bits
@@ -140,7 +140,7 @@ int8_t writeRegisterIndex_nostop(uint16_t index) {
   I2C0_MCS_R = 0x01&0xFF;
 	FlashI2CTx();	
 	
-	SysTick_Wait(120);			// YMH - It can take up to 60% of I2C clock to set the bit
+	SysTick_Wait(1200);			// YMH - It can take up to 60% of I2C clock to set the bit
 														// so a wait is necessary. See TRM.
   while(I2C0_MCS_R&I2C_MCS_BUSY){};// wait for transmission done
                                           // check error bits
@@ -163,7 +163,7 @@ int8_t writeI2C(uint8_t *pdata, uint32_t count){
 		else { I2C0_MCS_R =  0x01&0xFF; }
 		FlashI2CTx();	
 
-		SysTick_Wait(120);			// YMH - It can take up to 60% of I2C clock to set the bit
+		SysTick_Wait(1200);			// YMH - It can take up to 60% of I2C clock to set the bit
 														// so a wait is necessary. See TRM.
 		
 		while(I2C0_MCS_R&I2C_MCS_BUSY){};// wait for transmission done
@@ -180,7 +180,7 @@ int8_t writeI2C(uint8_t *pdata, uint32_t count){
 	I2C0_MCS_R = 0x05&0xFF; 
 	FlashI2CTx();	
 
-	SysTick_Wait(120);			// YMH - It can take up to 60% of I2C clock to set the bit
+	SysTick_Wait(1200);			// YMH - It can take up to 60% of I2C clock to set the bit
 														// so a wait is necessary. See TRM.
   while(I2C0_MCS_R&I2C_MCS_BUSY){};// wait for transmission done
                                           // check error bits
@@ -201,7 +201,7 @@ int8_t readI2C(uint8_t *pdata){
 	I2C0_MCS_R =  0x07&0xFF; 
 	FlashI2CRx();	
 	
-	SysTick_Wait(120);			// YMH - It can take up to 60% of I2C clock to set the bit
+	SysTick_Wait(1200);			// YMH - It can take up to 60% of I2C clock to set the bit
 														// so a wait is necessary. See TRM.
 	
   while(I2C0_MCS_R&I2C_MCS_BUSY){};// wait for transmission done
@@ -428,7 +428,7 @@ int8_t VL53L1_WaitMs(uint16_t dev, int32_t wait_ms){
 	//assumes 120MHz clock
   uint32_t i;
   for(i=0; i<wait_ms; i++){
-    SysTick_Wait(12000);  // wait 10ms (assumes 12 MHz clock)
+    SysTick_Wait(120000);  // wait 10ms (assumes 120 MHz clock)
   }
 
 	return 0;

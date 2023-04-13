@@ -52,7 +52,6 @@ void SysTick_Init(void){
                                         // enable SysTick with core clock
   NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE+NVIC_ST_CTRL_CLK_SRC;
 }
-
 // Time delay using busy wait.
 // The delay parameter is in units of the core clock. (units of 8.333 nsec for 120 MHz clock)
 void SysTick_Wait(uint32_t delay){
@@ -63,20 +62,17 @@ void SysTick_Wait(uint32_t delay){
   }
   while(elapsedTime <= delay);
 }
-
 // Time delay using busy wait.
-// This assumes 12 MHz system clock.
+// This assumes 120 MHz system clock.
 void SysTick_Wait10ms(uint32_t delay){
   uint32_t i;
   for(i=0; i<delay; i++){
-    SysTick_Wait(120000);  // wait 10ms (assumes 12 MHz clock)
+    SysTick_Wait(120000);  // wait 10ms (assumes 120 MHz clock)
   }
 }
-
 void SysTick_Wait1ms(uint32_t delay){
   uint32_t i;
   for(i=0; i<delay; i++){
-    SysTick_Wait(12000);  // wait 10ms (assumes 12 MHz clock)
+    SysTick_Wait(12000);  // wait 10ms (assumes 120 MHz clock)
   }
 }
-
