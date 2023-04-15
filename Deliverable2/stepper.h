@@ -75,13 +75,16 @@ volatile TsStepParameters motor;
 /*********************************************************
 *                  FUNCTION DECLARATIONS
 *********************************************************/
-void PortM_Init(void){
-	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R11;                 // Activate the clock for Port L
-	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R11) == 0){};        // Allow time for clock to stabilize 
-	GPIO_PORTM_DIR_R = 0b00001111;       								      // Make PL0-PL3 outputs 
-	GPIO_PORTM_AFSEL_R = 0;
-  GPIO_PORTM_DEN_R = 0b00001111;
-	GPIO_PORTM_AMSEL_R &= ~0xFF;     								// disable analog functionality on PN0	
+//Initialize GPIO Port H (Stepper Motor)
+void PortH_Init(void){
+	//Use PortH pins for output
+	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R7;				// activate clock for Port H
+	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R7) == 0){};	// allow time for clock to stabilize
+	GPIO_PORTH_DIR_R |= 0xF;        								// make PH0 out 
+  GPIO_PORTH_AFSEL_R &= ~0xF;     								// disable alt funct on PN0
+  GPIO_PORTH_DEN_R |= 0xF;        								// enable digital I/O on PN0
+																									// configure PN1 as GPIO
+  GPIO_PORTH_AMSEL_R &= ~0xF;     								// disable analog functionality on PH0		
 	return;
 }
 
@@ -91,25 +94,9 @@ void step(TeStepDirection dir, uint16_t num_steps){
 	
 	
 	for(uint16_t i = 0; i < num_steps; i++){		// loop through the number of steps
-		GPIO_PORTM_DATA_R &= ~0xF;
-		GPIO_PORTM_DATA_R |= (dir == STEP_CW) ? cw_sequence[i % NUM_SEQUENCE] : ccw_sequence[i % NUM_SEQUENCE];
+		GPIO_PORTH_DATA_R &= ~0xF;
+		GPIO_PORTH_DATA_R |= (dir == STEP_CW) ? cw_sequence[i % NUM_SEQUENCE] : ccw_sequence[i % NUM_SEQUENCE];
 		SysTick_Wait1ms(DELAY);
-		
-//		if(motor.currentStep == STEPS_IN_ROTATION - motor.angle){		// if current step is 
-//			motor.op = STEP_HOME;
-//		}
-//		
-//		if(motor.dir == STEP_CW){		// increment the step count
-//			motor.currentStep = (motor.currentStep+1)%STEPS_IN_ROTATION;
-//		}
-//		else if(motor.dir == STEP_CCW){		// increment step count if counter clockwise
-//			if(motor.currentStep >= 0){
-//				motor.currentStep = (motor.currentStep-1);
-//			}
-//			else{
-//				motor.currentStep = STEPS_IN_ROTATION-1;
-//			}
-//		}
 	}
 }
  

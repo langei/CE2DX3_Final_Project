@@ -25,13 +25,13 @@
 *                    		 MACROS
 *********************************************************/
 //SET SIZE_SIZE to one of the following:
-//Motor Step 2.8125 deg: 16 steps
-//Motor Step 5.625 deg: 32 steps
-//Motor Step 11.25 deg: 64 steps
-//Motor Step 22.5 deg: 128 steps
-//Motor Step 45 deg: 256 steps
+//Motor Step 2.8125 deg, 128 samples: 16 steps
+//Motor Step 5.625 deg, 64 samples: 32 steps
+//Motor Step 11.25 deg, 32 samples: 64 steps
+//Motor Step 22.5 deg, 16 samples: 128 steps
+//Motor Step 45 deg, 8 samples: 256 steps
 
-#define STEP_SIZE										(256)
+#define STEP_SIZE										(16)
 
 
 #define NUM_SAMPLES									(STEPS_IN_ROTATION/STEP_SIZE)
@@ -84,6 +84,10 @@ uint8_t rangeStatus;
 uint8_t measurementNum = 0;
 uint16_t distance = 0;
 uint16_t wordData = 0;
+uint16_t signalRate;
+uint16_t ambientRate;
+uint16_t spadNum; 
+
 int status = 0;
 	
 /*********************************************************
@@ -104,43 +108,117 @@ void WaitForInt(void)
 {    __asm("    wfi\n");
 }
 
+//The VL53L1X needs to be reset using XSHUT.  We will use PG0
+void PortG_Init(void){
+  //Use PortG0
+  SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R6;                // activate clock for Port N
+  while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R6) == 0){};    // allow time for clock to stabilize
+  GPIO_PORTG_DIR_R &= 0x00;                                        // make PG0 in (HiZ)
+  GPIO_PORTG_AFSEL_R &= ~0x01;                                     // disable alt funct on PG0
+  GPIO_PORTG_DEN_R |= 0x01;                                        // enable digital I/O on PG0
+                                                                                                    // configure PG0 as GPIO
+  //GPIO_PORTN_PCTL_R = (GPIO_PORTN_PCTL_R&0xFFFFFF00)+0x00000000;
+  GPIO_PORTG_AMSEL_R &= ~0x01;                                     // disable analog functionality on PN0
+
+  return;
+}
+
+//XSHUT     This pin is an active-low shutdown input; 
+//					the board pulls it up to VDD to enable the sensor by default. 
+//					Driving this pin low puts the sensor into hardware standby. This input is not level-shifted.
+void VL53L1X_XSHUT(void){
+    GPIO_PORTG_DIR_R |= 0x01;                                        // make PG0 out
+    GPIO_PORTG_DATA_R &= 0b11111110;                                 //PG0 = 0
+    FlashAllLEDs();
+    SysTick_Wait10ms(10);
+    GPIO_PORTG_DIR_R &= ~0x01;                                            // make PG0 input (HiZ)
+    
+}
+
 void bootVL53L1X(void){
-	
+	UART_printf("Program Begins\r\n");
+	int mynumber = 1;
+	sprintf(printf_buffer,"2DX ToF Program Studio Code %d\r\n",mynumber);
+	UART_printf(printf_buffer);
+
+
+/* Those basic I2C read functions can be used to check your own I2C functions */
+	status = VL53L1X_GetSensorId(DEV, &wordData);
+
+	sprintf(printf_buffer,"(Model_ID, Module_Type)=0x%x\r\n",wordData);
+	UART_printf(printf_buffer);
+
+	// Booting ToF chip
 	while(sensorState==0){
 		status = VL53L1X_BootState(DEV, &sensorState);
 		SysTick_Wait10ms(10);
   }
+	FlashAllLEDs();
+	UART_printf("ToF Chip Booted!\r\n Please Wait...\r\n");
 	
-	status = VL53L1X_ClearInterrupt(DEV);  // clear interrupt has to be called to enable next interrupt 
-	status = VL53L1X_SensorInit(DEV); 		 // initialize the sensor with the default setting
-	//status = VL53L1X_StartRanging(DEV);    // enable the ranging
+	status = VL53L1X_ClearInterrupt(DEV); /* clear interrupt has to be called to enable next interrupt*/
 	
-	UART_printf("Success");
+  /* This function must to be called to initialize the sensor with the default setting  */
+  status = VL53L1X_SensorInit(DEV);
+	Status_Check("SensorInit", status);
+
+	
+  /* Optional functions to be used to change the main ranging parameters according the application requirements to get the best ranging performances */
+//  status = VL53L1X_SetDistanceMode(dev, 2); /* 1=short, 2=long */
+//  status = VL53L1X_SetTimingBudgetInMs(dev, 100); /* in ms possible values [20, 50, 100, 200, 500] */
+//  status = VL53L1X_SetInterMeasurementInMs(dev, 200); /* in ms, IM must be > = TB */
+
+ // status = VL53L1X_StartRanging(DEV);   // This function has to be called to enable the ranging
+//	
+//	PortG_Init();
+//	VL53L1X_XSHUT();
+//	
+//	while(sensorState==0){
+//		status = VL53L1X_BootState(DEV, &sensorState);
+//		SysTick_Wait10ms(10);
+//  }
+//	
+//	status = VL53L1X_ClearInterrupt(DEV);  // clear interrupt has to be called to enable next interrupt 
+//	status = VL53L1X_SensorInit(DEV); 		 // initialize the sensor with the default setting
+//	//status = VL53L1X_StartRanging(DEV);    // enable the ranging
+//	
+//	UART_printf("Success");
 }
 
 void scanYZ(void){
 	if(measurementNum < MAX_MEASUREMENTS){
 		ResetLED2();
+		status = VL53L1X_StartRanging(DEV);
 		for(uint8_t i = 0; i < NUM_SAMPLES; i++){
 			step(motor.dir, motor.angle);
-			
-			status = VL53L1X_StartRanging(DEV);
-//			rangeStatus = 1; 
-//			while (rangeStatus != 0){
-//				status = VL53L1X_GetRangeStatus(DEV, &rangeStatus);
-
-//			}
+			GPIO_PORTH_DATA_R &= ~0xF;
+			//wait until the ToF sensor's data is ready
+			while (dataReady == 0){
+				status = VL53L1X_CheckForDataReady(DEV, &dataReady);
+						FlashLED3(1);
+						VL53L1_WaitMs(DEV, 5);
+			}
+			dataReady = 0;
+			//read the data values from ToF sensor
+			status = VL53L1X_GetRangeStatus(DEV, &rangeStatus);
 			status = VL53L1X_GetDistance(DEV, &distance);					//The Measured Distance value
-			status = VL53L1X_StopRanging(DEV);
+			status = VL53L1X_GetSignalRate(DEV, &signalRate);
+			status = VL53L1X_GetAmbientRate(DEV, &ambientRate);
+			status = VL53L1X_GetSpadNb(DEV, &spadNum);
 			
-			sprintf(printf_buffer,"%u\r\n", distance);
-			UART_printf(printf_buffer);
+			status = VL53L1X_ClearInterrupt(DEV); /* clear interrupt has to be called to enable next interrupt*/
+		
+		// print the resulted readings to UART
+		sprintf(printf_buffer,"%u, %u, %u, %u, %u\r\n", rangeStatus, distance, signalRate, ambientRate,spadNum);
+		UART_printf(printf_buffer);
+	
 			
 			transmissionData[measurementNum][i] = distance;
 			
 			status = VL53L1X_ClearInterrupt(DEV); /* clear interrupt has to be called to enable next interrupt*/
 			SysTick_Wait10ms(DELAY);
 		}
+		VL53L1X_StopRanging(DEV);
 		step(!(motor.dir), STEPS_IN_ROTATION);		// go back home
 		scanner.status = SC_COMPLETE;
 		measurementNum++;
@@ -225,7 +303,7 @@ void scanner_Init(){
 	onboardLEDs_Init();
 	UART_Init();
 	I2C_Init();
-	PortM_Init();
+	PortH_Init();
 	PortJ_Init();
 	PortJ_Interrupt_Init();
 	bootVL53L1X();
